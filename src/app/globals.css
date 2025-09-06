@@ -1,0 +1,150 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer base {
+    /* font Yekan Bakh */
+    @font-face {
+        font-family: "Yekan Bold";
+        src: url("/fonts/Yekan_Bakh_Fanum_Bold.TTF") format("truetype");
+        font-display: swap;
+    }
+    @font-face {
+        font-family: "Yekan Medium";
+        src: url("/fonts/Yekan_Bakh_Fanum_Medium.TTF") format("truetype");
+        font-display: swap;
+    }
+    @font-face {
+        font-family: "Yekan Regular";
+        src: url("/fonts/Yekan_Bakh_Fanum_Regular.TTF") format("truetype");
+        font-display: swap;
+    }
+    @font-face {
+        font-family: "Yekan SemiBold";
+        src: url("/fonts/Yekan_Bakh_Fanum_Semi_Bold.TTF") format("truetype");
+        font-display: swap;
+    }
+    @font-face {
+        font-family: "Yekan Light";
+        src: url("/fonts/Yekan_Bakh_Fanum_Light.TTF") format("truetype");
+        font-display: swap;
+    }
+
+    /* Modam */
+    @font-face {
+        font-family: "Modam Light";
+        src: url("/fonts/ModamFaNum-Light.ttf") format("truetype");
+        font-display: swap;
+    }
+    @font-face {
+        font-family: "Modam Bold";
+        src: url("/fonts/ModamFaNum-Bold.ttf") format("truetype");
+        font-display: swap;
+    }
+    @font-face {
+        font-family: "Modam ExtraBold";
+        src: url("/fonts/ModamFaNum-ExtraBold.ttf") format("truetype");
+        font-display: swap;
+    }
+    @font-face {
+        font-family: "Modam Semi";
+        src: url("/fonts/ModamFaNum-SemiBold.ttf") format("truetype");
+        font-display: swap;
+    }
+    @font-face {
+        font-family: "Modam Regular";
+        src: url("/fonts/ModamFaNum-Light.ttf") format("truetype");
+        font-display: swap;
+    }
+
+
+}
+
+@layer components {
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        @apply bg-secondPrimaryColor
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        @apply bg-primaryColor rounded-full
+    }
+
+    .title-wrapper {
+        background-image: url("/images/svg/title-wrapper.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin: 0 auto;
+        padding: 2px 22px;
+    }
+
+    .banner-sleep {
+        background-image: url("/images/woman-is-sleeping-bed-with-words-duvet-bottom_1308175-225643 1.png");
+        background-repeat: no-repeat;
+        background-position: center left;
+        background-size: cover;
+    }
+
+    .banner-bed {
+        background-image: url("/images/clean-minimalist-bedroom-with-light-blue-walls-interior-design_975188-1465 2 1.png");
+        background-repeat: no-repeat;
+        background-position: center left;
+        background-size: cover;
+    }
+
+    .follow-instagram {
+        background: rgba(31, 39, 50, 100);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+
+}
+
+
+@layer utilities {
+    .flex-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .flex-center-between {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    body {
+        background-image: url("/images/grid.svg");
+        background-position: center;
+        font-family:  "Yekan Regular";
+        overflow-x: hidden;
+    }
+
+    /*.swiper{*/
+    /*    padding: 0;*/
+    /*}*/
+
+    .mySwiper .swiper-wrapper {
+        display: flex;
+        justify-content: space-between !important;
+        align-items: center;
+    }
+
+}
