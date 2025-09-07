@@ -4,6 +4,8 @@ import Header from '@/src/components/modules/Header/Header';
 import {MenuProvider} from "@/src/Context/AppContext";
 import OpacityCover from "@/src/components/modules/OpacityCover/OpacityCover";
 import AOSInit from "@/src/utils/AOS";
+import Footer from "@/src/components/modules/Footer/Footer";
+
 
 export const metadata = {
     title: 'آرامیس - صفحه اصلی ',
@@ -21,10 +23,12 @@ export default function RootLayout({children}) {
             <Header/>
             <AOSInit/>
 
-                {children}
+            {children}
 
             <OpacityCover/>
+            <Footer/>
         </MenuProvider>
+
         </body>
         </html>
     );

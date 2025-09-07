@@ -23,7 +23,7 @@ function HeaderBody() {
             {/* Mobile menu*/}
 
             <div
-                className={`mobile-menu ${isMenuOpen ? `right-0` : `-right-64`} fixed z-40 w-64 top-0  bottom-0 bg-primaryColor p-6 transition-all`}>
+                className={`mobile-menu ${isMenuOpen ? `right-0` : `-right-96`} fixed z-40 w-64 top-0  bottom-0 bg-primaryColor p-6 transition-all`}>
                 <div
                     onClick={toggleMenu}
                     className="close-btn inline-block rounded-full p-2  border border-white">

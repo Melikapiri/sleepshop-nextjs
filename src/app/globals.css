@@ -1,8 +1,6 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 
 @layer base {
@@ -58,6 +56,10 @@
         font-family: "Modam Regular";
         src: url("/fonts/ModamFaNum-Light.ttf") format("truetype");
         font-display: swap;
+    }
+
+    * {
+        box-sizing: border-box;
     }
 
 
@@ -131,16 +133,16 @@
     }
 
     body {
+        overflow: auto;
         background-image: url("/images/grid.svg");
         background-position: center;
-        font-family:  "Yekan Regular";
+        font-family: "Yekan Regular";
         overflow-x: hidden;
     }
 
     /*.swiper{*/
     /*    padding: 0;*/
     /*}*/
-
     .mySwiper .swiper-wrapper {
         display: flex;
         justify-content: space-between !important;
