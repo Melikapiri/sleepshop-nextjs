@@ -13,7 +13,7 @@ function ServiceHighlights(props) {
                         <div className="relative bg-lightBlue rounded-xl w-[104px] h-[38px]">
                             <img
                                 className="absolute bottom-0 -right-1"
-                                src="./images/portrait-smiling-woman-.png"
+                                src="/images/portrait-smiling-woman-.png"
                                 alt=""
                             />
                         </div>
@@ -27,7 +27,6 @@ function ServiceHighlights(props) {
                         <ServiceItem icon={<Wallet className="w-7 h-7"/>} title="پرداخت امن با درگاه امن"/>
                         <ServiceItem icon={<Smile className="w-7 h-7"/>} title="رضایت بیش از 1 میلیون مشتری"/>
                         <ServiceItem icon={<Support className="w-7 h-7"/>} title="پشتیبانی 24 ساعته"/>
-
                     </div>
                 </div>
             </div>
