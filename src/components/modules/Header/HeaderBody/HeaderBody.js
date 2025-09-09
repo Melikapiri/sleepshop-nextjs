@@ -10,7 +10,7 @@ import ToggleMenuBtn from "@/src/components/modules/Header/ToggleMenuBtn/ToggleM
 import Login from "@/src/components/Icons/Login";
 import XMark from "@/src/components/Icons/X-mark";
 import {useMenu} from "@/src/Context/AppContext";
-import Signin from "@/src/components/Icons/Signin";
+import Signin from "@/src/components/Icons/SignIn";
 
 function HeaderBody() {
 
@@ -30,7 +30,7 @@ function HeaderBody() {
                     className="close-btn inline-block rounded-full p-2  border border-white">
                     <XMark className="w-5 h-5  text-white"/>
                 </div>
-                <a href="#"
+                <a href="/login"
                    className="flex justify-center items-center gap-3 text-white p-1.5 rounded-lg border border-white  mt-2 mb-6">
                     ورود/ثبت نام
                     <Login className="w-5 h-5 rotate-180"/>
@@ -58,7 +58,7 @@ function HeaderBody() {
                    className="p-2 text-white bg-lightBlue sm:bg-transparent rounded-lg sm:text-dark sm:p-0">
                     <Bag className="  w-5 h-5 "/>
                 </a>
-                <a href="">
+                <a href="/login">
                     <User className="hidden sm:inline-block w-5 h-5 text-dark"/>
                 </a>
                 <a href="">

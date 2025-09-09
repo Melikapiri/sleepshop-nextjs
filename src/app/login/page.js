@@ -24,7 +24,7 @@ function Page(props) {
 
                         className="  relative w-full max-w-md rounded-2xl shadow-100 border bg-white border-gray-300 p-8  md:p-4 ">
                         <p className="text-sm text-gray-600 font-Yekan-Light">هنوز ثبت نام نکردی؟ <a href="/register"
-                                                                                       className="tracking-tight font-bold">ثبت
+                                                                                       className="tracking-tight font-Yekan-bold">ثبت
                             نام</a></p>
                         <h2 className="text-base text-center my-2 md:text-lg font-Modam-SemiBold login text-neutral-900 dark:text-neutral-100 mb-4">
                             ورود
