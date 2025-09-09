@@ -1,4 +1,8 @@
+const {
+    default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
     content: [
         "./app/**/*.{js,ts,jsx,tsx,mdx}",
@@ -44,7 +48,10 @@ module.exports = {
                 lightGray: "#858585",
                 lightGray2: "#F4F4F4",
                 dark: "#363636",
-            }
+            },
+         boxShadow:{
+                "100":"rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;",
+         }
 
         },
     },

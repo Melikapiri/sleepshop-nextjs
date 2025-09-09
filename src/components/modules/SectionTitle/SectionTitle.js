@@ -3,7 +3,7 @@ import React from 'react';
 function SectionTitle({title}) {
     return (
         <div
-            className="relative text-center w-[221px] h-[46px] sm:w-auto sm:h-[48px] mx-auto flex items-center justify-center mt-4 mb-8">
+            className="relative text-center w-[221px] h-[46px] sm:w-full sm:h-[48px] mx-auto flex items-center justify-center mt-4 mb-8">
             <svg className="absolute left-0 right-0 w-full h-full" viewBox="0 0 254 48" fill="none"
                  xmlns="http://www.w3.org/2000/svg">
                 <path

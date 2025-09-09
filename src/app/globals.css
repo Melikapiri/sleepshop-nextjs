@@ -115,7 +115,39 @@
         background-size: cover;
     }
 
+    .gradiant {
+        background: #e0eafc; /* fallback for old browsers */
+        background: -webkit-linear-gradient(to left, #e0eafc, #cfdef3); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to left, #e0eafc, #cfdef3);
+    }
 
+    .login {
+        position: relative;
+
+    }
+
+    .login::before {
+        right: 0;
+        position: absolute;
+        content: "";
+        width: 83px;
+        height: 3px;
+        top: 50%;
+        z-index: 0;
+        background: #5EB5F8;
+        border-radius: 10px;
+    }
+    .login::after {
+        left: 0;
+        position: absolute;
+        content: "";
+        width: 83px;
+        height: 3px;
+        top: 50%;
+        z-index: 0;
+        background: #5EB5F8;
+        border-radius: 10px;
+    }
 }
 
 
@@ -140,9 +172,6 @@
         overflow-x: hidden;
     }
 
-    /*.swiper{*/
-    /*    padding: 0;*/
-    /*}*/
     .mySwiper .swiper-wrapper {
         display: flex;
         justify-content: space-between !important;

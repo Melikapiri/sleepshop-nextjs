@@ -1,10 +1,7 @@
-// app/layout.js
 import './globals.css';
-import Header from '@/src/components/modules/Header/Header';
 import {MenuProvider} from "@/src/Context/AppContext";
 import OpacityCover from "@/src/components/modules/OpacityCover/OpacityCover";
 import AOSInit from "@/src/utils/AOS";
-import Footer from "@/src/components/modules/Footer/Footer";
 
 
 export const metadata = {
@@ -20,13 +17,9 @@ export default function RootLayout({children}) {
         <html lang="fa" dir="rtl">
         <body>
         <MenuProvider>
-            <Header/>
             <AOSInit/>
-
             {children}
-
             <OpacityCover/>
-            <Footer/>
         </MenuProvider>
 
         </body>

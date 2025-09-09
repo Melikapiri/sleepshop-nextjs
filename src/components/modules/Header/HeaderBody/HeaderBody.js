@@ -10,6 +10,7 @@ import ToggleMenuBtn from "@/src/components/modules/Header/ToggleMenuBtn/ToggleM
 import Login from "@/src/components/Icons/Login";
 import XMark from "@/src/components/Icons/X-mark";
 import {useMenu} from "@/src/Context/AppContext";
+import Signin from "@/src/components/Icons/Signin";
 
 function HeaderBody() {
 
@@ -61,7 +62,7 @@ function HeaderBody() {
                     <User className="hidden sm:inline-block w-5 h-5 text-dark"/>
                 </a>
                 <a href="">
-                    <Login className="hidden w-5 h-5 text-dark"/>
+                    <Signin className=" hidden w-5 h-5 text-dark"/>
                 </a>
             </div>
         </div>
