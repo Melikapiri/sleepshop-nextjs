@@ -9,10 +9,14 @@
   },
   "dependencies": {
     "aos": "^2.3.4",
+    "bcryptjs": "^3.0.2",
     "framer-motion": "^12.23.12",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.18.1",
     "next": "15.5.2",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "react-toastify": "^11.0.5",
     "swiper": "^11.2.10"
   },
   "devDependencies": {

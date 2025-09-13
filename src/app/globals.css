@@ -137,6 +137,7 @@
         background: #5EB5F8;
         border-radius: 10px;
     }
+
     .login::after {
         left: 0;
         position: absolute;
@@ -147,6 +148,10 @@
         z-index: 0;
         background: #5EB5F8;
         border-radius: 10px;
+    }
+
+    .toast-custom {
+        @apply font-Yekan-Medium text-sm;
     }
 }
 
@@ -177,5 +182,7 @@
         justify-content: space-between !important;
         align-items: center;
     }
+
+
 
 }

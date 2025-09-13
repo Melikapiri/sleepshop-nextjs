@@ -2,8 +2,10 @@ import React from 'react';
 import ArrowLeft from "@/src/components/Icons/ArrowLeft";
 import Search from "@/src/components/Icons/Search";
 import HeaderBody from "@/src/components/modules/Header/HeaderBody/HeaderBody";
+import {authUser} from "@/src/utils/AuthServer";
 
-function Header(props) {
+async function Header(props) {
+    const user = await authUser();
     return (
         <header className="header  md:mt-4">
             {/*  top header  */}
