@@ -23,10 +23,6 @@ const schema = new mongoose.Schema({
     default: "USER",
   },
 
-  //   refreshToken: {
-  //     type: String,
-  //   },
-
   refreshToken: String,
 });
 

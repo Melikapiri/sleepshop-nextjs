@@ -12,8 +12,9 @@ import XMark from "@/src/components/Icons/X-mark";
 import {useMenu} from "@/src/Context/AppContext";
 import Signin from "@/src/components/Icons/SignIn";
 
-function HeaderBody() {
-
+function HeaderBody({isLogin,username}) {
+    console.log(username)
+    console.log("is loginnn =>>>",isLogin)
     const {isMenuOpen, toggleMenu, setIsMenuOpen} = useMenu()
     return (
         <div className="flex justify-between items-center mx-auto mt-3 lg:mt-6 ">
@@ -30,11 +31,27 @@ function HeaderBody() {
                     className="close-btn inline-block rounded-full p-2  border border-white">
                     <XMark className="w-5 h-5  text-white"/>
                 </div>
-                <a href="/login"
-                   className="flex justify-center items-center gap-3 text-white p-1.5 rounded-lg border border-white  mt-2 mb-6">
-                    ورود/ثبت نام
-                    <Login className="w-5 h-5 rotate-180"/>
-                </a>
+
+
+
+
+                {
+                    username?(
+                        <p className="flex justify-center items-center gap-3 text-white p-1.5 rounded-lg border border-white line-clamp-1  mt-2 mb-6">
+
+                          { username}   خوش آمدید
+                        </p>
+                    ):(
+                        <a href="/login"
+                           className="flex justify-center items-center gap-3 text-white p-1.5 rounded-lg border border-white  mt-2 mb-6">
+
+                            ورود/ثبت نام
+                            <Login className="w-5 h-5 rotate-180"/>
+                        </a>
+                    )
+                }
+
+
                 <MobileMenu/>
             </div>
             {/*Logo  desktop*/}
@@ -58,12 +75,20 @@ function HeaderBody() {
                    className="p-2 text-white bg-lightBlue sm:bg-transparent rounded-lg sm:text-dark sm:p-0">
                     <Bag className="  w-5 h-5 "/>
                 </a>
-                <a href="/login">
-                    <User className="hidden sm:inline-block w-5 h-5 text-dark"/>
-                </a>
-                <a href="">
-                    <Signin className=" hidden w-5 h-5 text-dark"/>
-                </a>
+
+                {
+                    isLogin ? (
+                        <div>
+                            <User className="hidden sm:inline-block w-5 h-5 text-dark"/>
+                        </div>
+                    ) : (
+                        <a href="/login">
+                            <Signin className=" hidden sm:inline-block  w-5 h-5 text-dark"/>
+                        </a>
+                    )
+                }
+
+
             </div>
         </div>
     );

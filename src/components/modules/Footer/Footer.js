@@ -21,7 +21,7 @@ function Footer() {
                         </div>
                         <ul className="flex flex-wrap justify-items-start sm:items-center sm:justify-center gap-4 sm:gap-9 mt-9 mb-[18px] child:text-lightGray child:font-Yekan-Medium child:text-base ">
                             <li>
-                                <a className="text-white" href="#">
+                                <a href="/" className="text-white" >
                                     صفحه اصلی
                                 </a>
                             </li>

@@ -1,8 +1,8 @@
 import Footer from "@/src/components/modules/Footer/Footer";
 
 export const metadata = {
-    title: 'آرامیس - ورود ',
-    description: 'ورود ',
+    title: 'آرامیس - ثبت نام ',
+    description: 'ثبت نام ',
     icons: {
         icon: '/logo.png',
     }

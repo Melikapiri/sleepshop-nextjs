@@ -1,9 +1,7 @@
 "use client"
 import React, {useState} from "react";
-import Link from "next/link";
-import Header from "@/src/components/modules/Header/Header";
 import SectionTitle from "@/src/components/modules/SectionTitle/SectionTitle";
-import Footer from "@/src/components/modules/Footer/Footer";
+import Link from "next/link";
 import RegisterIcon from "@/src/components/Icons/RegisterIcon";
 import {validateEmail, validatePassword, validatePhone} from "@/src/utils/validatePattern";
 import {toast} from "react-toastify";
@@ -66,20 +64,16 @@ function Page() {
                     <SectionTitle title="ثبت نام"/>
                 </div>
 
-                {/* فرم ثبت نام */}
-                <div className="gradiant">
+                <div className="container">
 
                     <div
-                        className="container  overflow-hidden flex items-center justify-center md:gap-6 py-10 rounded-3xl mx-auto   mb-10">
-                        {/* آیکن سمت چپ */}
+                        className="gradiant  shadow shadow-primaryColor overflow-hidden flex items-center justify-center md:gap-6 p-6 xs:py-10 md:p-12  rounded-3xl mx-auto   mb-10">
                         <RegisterIcon className="hidden md:block w-auto h-80 md:max-h-[30rem] md:h-auto"/>
 
-                        {/* فرم */}
                         <form
 
                             onSubmit={userRegister}
-                            className="relative w-full max-w-sm rounded-2xl   bg-white  p-4 xs:p-8 ">
-                            {/* لینک ورود */}
+                            className="relative w-full max-w-sm rounded-2xl shadow-100  bg-white  p-4 xs:p-8 ">
                             <p className="text-sm text-gray-600 font-Yekan-Light">
                                 قبلا ثبت نام کردی؟{" "}
                                 <Link href="/login" className="tracking-tight font-Yekan-bold">
@@ -91,7 +85,6 @@ function Page() {
                                 ثبت نام
                             </h2>
 
-                            {/* نام کاربری */}
                             <label className="block text-sm text-neutral-700 dark:text-neutral-300 mb-2">
                                 نام کاربری
                             </label>
@@ -116,7 +109,6 @@ function Page() {
                                 placeholder="09123456789"
                             />
 
-                            {/* ایمیل */}
                             <label className="block text-sm text-neutral-700 dark:text-neutral-300 mt-4 mb-2">
                                 ایمیل
                             </label>
@@ -130,7 +122,6 @@ function Page() {
                                 autoComplete="email"
                             />
 
-                            {/* رمز عبور */}
                             <label className="block text-sm text-neutral-700 dark:text-neutral-300 mt-4 mb-2">
                                 رمز عبور
                             </label>
@@ -158,7 +149,6 @@ function Page() {
                     </div>
                 </div>
             </div>
-            <Footer/>
         </>
     );
 }

@@ -1,10 +1,5 @@
-"use client"
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import "swiper/css";
-import connectToDB from "@/configs/db";
 
+import connectToDB from "@/configs/db";
 import HomeSection from "@/src/components/Templates/Index/HomeSection/HomeSection";
 import CategorySection from "@/src/components/Templates/Index/CategorySection/CategorySection";
 import SpecialOffers from "@/src/components/Templates/Index/SpecialOffers/SpecialOffers";
@@ -15,10 +10,9 @@ import ServiceHighlights from "@/src/components/Templates/Index/ServiceHighlight
 import ArticleSection from "@/src/components/Templates/Index/ArticleSection/ArticleSection";
 import Header from "@/src/components/modules/Header/Header";
 import Footer from "@/src/components/modules/Footer/Footer";
-import {authUser} from "@/src/utils/AuthServer";
 
 export default async function Home() {
-    const user = await authUser();
+
 
     return (
 
