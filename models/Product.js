@@ -18,11 +18,11 @@ const schema = new mongoose.Schema({
         type: String,
         required: true,
         enum: [
-            "Bedding", // For bed sheets, duvet covers
-            "Pillow", // For pillows
-            "Mattress", // For mattresses
-            "BeddingSet", // For complete bedding sets
-            "MattressProtector", // For mattress covers/protectors
+            "Bedding", //ملافه
+            "Pillow", // بالش
+            "Mattress", // تشک
+            "BeddingSet", // سرویس خواب
+            "MattressProtector", // محافظ تشک
         ],
     },
     identifier: {
@@ -30,7 +30,7 @@ const schema = new mongoose.Schema({
         default: () => Date.now(),
         immutable: false,
     },
-    type: {
+    material: {
         type: String,
         required: true,
     },
