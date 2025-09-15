@@ -13,9 +13,9 @@ export async function POST(req) {
         const description = formData.get("description");
         const category = formData.get("category");
         const material = formData.get("material");
-
         const size = formData.get("size");
         const score = formData.get("score");
+        const isAvailable = formData.get("isAvailable");
         const tags = JSON.parse(formData.get("tags"));
         const img = formData.get("img");
 
@@ -28,6 +28,7 @@ export async function POST(req) {
         const product = await ProductModel.create({
             title,
             description,
+            isAvailable,
             category,
             material,
             size,

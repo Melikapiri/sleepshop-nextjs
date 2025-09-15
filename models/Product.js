@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import Comment from "@/models/Comment";
+import category from "@/models/Category";
 
 const schema = new mongoose.Schema({
     title: {
@@ -15,20 +16,18 @@ const schema = new mongoose.Schema({
         required: true,
     },
     category: {
-        type: String,
+        type: mongoose.Types.ObjectId, // رابطه با مدل Category
+        ref: "Category",
         required: true,
-        enum: [
-            "Bedding", //ملافه
-            "Pillow", // بالش
-            "Mattress", // تشک
-            "BeddingSet", // سرویس خواب
-            "MattressProtector", // محافظ تشک
-        ],
     },
     identifier: {
         type: Date,
         default: () => Date.now(),
         immutable: false,
+    },
+    isAvailable: {
+        type: Boolean,
+        default: true,
     },
     material: {
         type: String,

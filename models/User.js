@@ -22,7 +22,6 @@ const schema = new mongoose.Schema({
     type: String,
     default: "USER",
   },
-
   refreshToken: String,
 });
 
