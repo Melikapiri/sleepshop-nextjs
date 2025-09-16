@@ -1,4 +1,3 @@
-
 import connectToDB from "@/configs/db";
 import HomeSection from "@/src/components/Templates/Index/HomeSection/HomeSection";
 import CategorySection from "@/src/components/Templates/Index/CategorySection/CategorySection";
@@ -10,8 +9,10 @@ import ServiceHighlights from "@/src/components/Templates/Index/ServiceHighlight
 import ArticleSection from "@/src/components/Templates/Index/ArticleSection/ArticleSection";
 import Header from "@/src/components/modules/Header/Header";
 import Footer from "@/src/components/modules/Footer/Footer";
+import Category from "@/models/Category";
 
 export default async function Home() {
+    const categories = await Category.find({}).select('-__v');
 
 
     return (
@@ -20,7 +21,7 @@ export default async function Home() {
             <Header/>
             <main>
                 <HomeSection/>
-                <CategorySection/>
+                <CategorySection data={categories}/>
                 <SpecialOffers/>
                 <Banner/>
                 <PopularSection/>

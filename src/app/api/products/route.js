@@ -1,7 +1,7 @@
 import connectToDB from "@/configs/db";
+import mongoose from "mongoose";
 import ProductModel from "@/models/Product";
-// import fs from "fs";
-import {writeFile} from "fs/promises";
+import { writeFile } from "fs/promises";
 import path from "path";
 
 export async function POST(req) {
@@ -15,15 +15,34 @@ export async function POST(req) {
         const material = formData.get("material");
         const size = formData.get("size");
         const score = formData.get("score");
-        const isAvailable = formData.get("isAvailable");
+        const isAvailable = formData.get("isAvailable") === "true" ? true : false; // تبدیل به Boolean
         const tags = JSON.parse(formData.get("tags"));
         const img = formData.get("img");
+        const discount = formData.get("discount") || 0;
+
+        // اعتبارسنجی تخفیف
+        if (discount < 0 || discount > 100) {
+            return Response.json(
+                { message: "Discount must be between 0 and 100" },
+                { status: 400 }
+            );
+        }
+
+        // اعتبارسنجی category
+        if (!mongoose.Types.ObjectId.isValid(category)) {
+            return Response.json(
+                { message: "Invalid category ID" },
+                { status: 400 }
+            );
+        }
 
         const buffer = Buffer.from(await img.arrayBuffer());
         const filename = Date.now() + img.name;
         const imgPath = path.join(process.cwd(), "public/uploads/" + filename);
 
         await writeFile(imgPath, buffer);
+
+        const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
         const product = await ProductModel.create({
             title,
@@ -35,52 +54,36 @@ export async function POST(req) {
             score,
             price,
             tags,
-            img: `http://localhost:3000/uploads/${filename}`,
+            img: `/Uploads/${filename}`,
+            discount,
         });
 
         return Response.json(
-            {message: "Product created successfully :))", data: product},
-            {status: 201}
+            { message: "Product created successfully :))", data: product },
+            { status: 201 }
         );
     } catch (err) {
-        return Response.json({message: err}, {status: 500});
+        return Response.json({ message: err.message }, { status: 500 });
     }
 }
 
-// Image Uploader
-export async function PUT(req) {
-    const formData = await req.formData();
-    const img = formData.get("img");
-
-    // Validation
-    if (!img) {
-        return Response.json(
-            {message: "Product has not image !!"},
-            {status: 400}
-        );
-    }
-
+export async function GET(req) {
     try {
-        const buffer = Buffer.from(await img.arrayBuffer());
-        const filename = Date.now() + img.name;
+        await connectToDB();
+        const { searchParams } = new URL(req.url);
+        const isSpecialOffer = searchParams.get('specialOffer');
 
-        await writeFile(
-            path.join(process.cwd(), "public/uploads/" + filename),
-            buffer
-        );
+        let query = {};
+        if (isSpecialOffer === 'true') {
+            query = { discount: { $gt: 0 } }; // فقط محصولات با تخفیف
+        }
 
-        // ✅
-        return Response.json(
-            {message: "File uploaded successfully :))"},
-            {status: 201}
-        );
+        const products = await ProductModel.find(query)
+            .populate("comments")
+            .populate("category"); // لود اطلاعات دسته‌بندی
+
+        return Response.json(products);
     } catch (err) {
-        console.log(err);
-        return Response.json({message: err.message}, {status: 500});
+        return Response.json({ message: err.message }, { status: 500 });
     }
-}
-
-export async function GET() {
-    const products = await ProductModel.find({}, "-__v").populate("comments");
-    return Response.json(products);
 }

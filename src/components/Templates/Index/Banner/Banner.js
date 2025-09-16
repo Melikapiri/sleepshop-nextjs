@@ -1,10 +1,14 @@
-import React from 'react';
+
+import React, from 'react';
 
 function Banner(props) {
+
+
     return (
         <section className="Banner mb-12 sm:mb-20">
+
             <div className="container">
-                <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-4 lg:gap-7 ">
+                <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-4 lg:gap-7">
                     <div
                         data-aos="fade-down"
                         data-aos-duration="400"
@@ -19,7 +23,8 @@ function Banner(props) {
                     </div>
                     <div
                         data-aos="fade-up"
-                        data-aos-duration="400"                        className="banner-bed pb-14 pt-7 sm:py-[73px] pr-4 sm:pr-[38px] rounded-2xl text-white"
+                        data-aos-duration="400"
+                        className="banner-bed pb-14 pt-7 sm:py-[73px] pr-4 sm:pr-[38px] rounded-2xl text-white"
                     >
                         <h3 className="font-Yekan-bold text-base sm:text-xl">
                             دیگه نگران خواب راحتت نباش
@@ -30,7 +35,7 @@ function Banner(props) {
                         >
                             کالکشن پاییزه آرامیس
                             <svg className="w-3 h-3">
-                                <use xlinkHref="#chevron-left" />
+                                <use xlinkHref="#chevron-left"/>
                             </svg>
                         </a>
                     </div>

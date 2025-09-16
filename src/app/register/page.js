@@ -38,7 +38,6 @@ function Page() {
 
     const registerUser = async (values, { resetForm }) => {
 
-        console.log(values)
         try {
             const newUser = {
                 name: values.username,
@@ -46,7 +45,6 @@ function Page() {
                 phone: values.phone,
                 password: values.password,
             };
-
 
             const res = await fetch(`/api/auth/signup`, {
                 method: "POST",
@@ -113,7 +111,6 @@ function Page() {
                                     className="text-red-500 text-xs mt-1"
                                 />
 
-                                {/* تلفن */}
                                 <label className="block text-sm text-neutral-700 dark:text-neutral-300 my-2">
                                     تلفن
                                 </label>

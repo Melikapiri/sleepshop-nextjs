@@ -40,7 +40,11 @@ function Page(props) {
                     },
                 });
 
-            } else {
+            } else if(res.status === 401) {
+                toast.error("ایمیل یا پسورد معتبر نیست ")
+
+            }else
+            {
                 toast.error("مشکلی به وجود آمده مجدد تلاش کنید")
 
             }

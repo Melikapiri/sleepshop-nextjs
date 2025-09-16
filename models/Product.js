@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import Comment from "@/models/Comment";
-import category from "@/models/Category";
+import Category from "@/models/Category";
 
 const schema = new mongoose.Schema({
     title: {
@@ -11,12 +11,18 @@ const schema = new mongoose.Schema({
         type: Number,
         required: true,
     },
+    discount: {
+        type: Number,
+        default: 0,
+        min: 0,
+        max: 100,
+    },
     description: {
         type: String,
         required: true,
     },
     category: {
-        type: mongoose.Types.ObjectId, // رابطه با مدل Category
+        type: mongoose.Types.ObjectId,
         ref: "Category",
         required: true,
     },
@@ -26,7 +32,7 @@ const schema = new mongoose.Schema({
         immutable: false,
     },
     isAvailable: {
-        type: Boolean,
+        type: Boolean, // اصلاح نوع به Boolean برای سازگاری
         default: true,
     },
     material: {
@@ -43,6 +49,11 @@ const schema = new mongoose.Schema({
             "king", // کینگ
             "50x70", // بالشت
             "160x200", // تشک
+            "S", // حوله تن‌پوش - کوچک
+            "M", // حوله تن‌پوش - متوسط
+            "L", // حوله تن‌پوش - بزرگ
+            "XL", // حوله تن‌پوش - خیلی بزرگ
+            "XXL", // حوله تن‌پوش - خیلی خیلی بزرگ
         ],
     },
     score: {
@@ -54,7 +65,7 @@ const schema = new mongoose.Schema({
         required: true,
     },
     img: {
-        type: String, // img src
+        type: String,
         required: true,
     },
     comments: {
@@ -65,6 +76,20 @@ const schema = new mongoose.Schema({
             },
         ],
     },
+});
+
+// تعریف virtual برای finalPrice
+schema.virtual('finalPrice').get(function () {
+    return this.price * (1 - this.discount / 100);
+});
+
+// تنظیم toJSON برای نمایش virtualها و حذف __v
+schema.set('toJSON', {
+    virtuals: true,
+    versionKey: false,
+    transform: function (doc, ret) {
+        return ret;
+    }
 });
 
 const model = mongoose.models.Product || mongoose.model("Product", schema);
