@@ -12,9 +12,9 @@ import XMark from "@/src/components/Icons/X-mark";
 import {useMenu} from "@/src/Context/AppContext";
 import Signin from "@/src/components/Icons/SignIn";
 
-function HeaderBody({isLogin,username}) {
+function HeaderBody({isLogin, username}) {
     console.log(username)
-    console.log("is loginnn =>>>",isLogin)
+    console.log("is loginnn =>>>", isLogin)
     const {isMenuOpen, toggleMenu, setIsMenuOpen} = useMenu()
     return (
         <div className="flex justify-between items-center mx-auto mt-3 lg:mt-6 ">
@@ -33,15 +33,13 @@ function HeaderBody({isLogin,username}) {
                 </div>
 
 
-
-
                 {
-                    username?(
+                    username ? (
                         <p className="flex justify-center items-center gap-3 text-white p-1.5 rounded-lg border border-white line-clamp-1  mt-2 mb-6">
 
-                          { username}   خوش آمدید
+                            {username} خوش آمدید
                         </p>
-                    ):(
+                    ) : (
                         <a href="/login"
                            className="flex justify-center items-center gap-3 text-white p-1.5 rounded-lg border border-white  mt-2 mb-6">
 
@@ -78,9 +76,7 @@ function HeaderBody({isLogin,username}) {
 
                 {
                     isLogin ? (
-                        <div>
-                            <User className="hidden sm:inline-block w-5 h-5 text-dark"/>
-                        </div>
+                        <User className="hidden sm:inline-block w-5 h-5 text-dark"/>
                     ) : (
                         <a href="/login">
                             <Signin className=" hidden sm:inline-block  w-5 h-5 text-dark"/>

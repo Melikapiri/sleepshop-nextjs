@@ -29,7 +29,6 @@ function PopularSection(props) {
                     <PopularCard/>
                     <PopularCard/>
 
-
                 </div>
             </div>
         </section>

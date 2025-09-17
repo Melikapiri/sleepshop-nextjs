@@ -73,7 +73,7 @@ function Footer() {
                 <div
                     className="bg-secondPrimaryColor flex flex-col-reverse sm:flex-row items-center justify-center sm:justify-between gap-6 sm:px-20 py-6">
                     <p className="text-lightGray text-sm">
-                        تمام حقوق این وب سایت متعلق به شیکلند میباشد
+                        تمام حقوق این وب سایت متعلق به ملیکا میباشد
                     </p>
                     <div className="flex items-center gap-2">
                         <Whatsapp className="w-6 h-6"/>

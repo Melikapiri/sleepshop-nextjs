@@ -47,11 +47,16 @@ module.exports = {
                 lightBlue: "#5EB5F8",
                 lightGray: "#858585",
                 lightGray2: "#F4F4F4",
+                lightGray3: "#FAFAFA",
+                lightTextGray:"#929292",
                 dark: "#363636",
             },
-         boxShadow:{
-                "100":"rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;"
-         },
+            spacing: {
+                '4.5': '1.125rem',
+            },
+            boxShadow: {
+                "100": "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;"
+            },
 
         },
     },

@@ -9,7 +9,7 @@ export const metadata = {
 }
 export default function RootLayout({children}) {
     return (
-        <div>
+        <div className="backgroundImage">
             {children}
             <Footer/>
         </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import Sparkles from "@/src/components/Icons/Sparkles";
 
 function OfferCard(props) {
     return (
@@ -32,11 +33,14 @@ function OfferCard(props) {
                             <span className="line-through">16.500.000</span>
                             <span className="line-through text-xs">تومان</span>
                         </p>
-                        <p className="text-sm sm:text-base">15.900.000</p>
+                        <p className="text-sm sm:text-base">
+
+                            15.900.000</p>
                     </div>
                     <div
                         className="bg-secondPrimaryColor text-lightBlue p-2 sm:py-2.5 px-2 rounded-lg text-base ">
-                        20 %
+                        <Sparkles className="w-4 h-4" />
+                        {/*20 %*/}
                     </div>
                 </div>
             </div>

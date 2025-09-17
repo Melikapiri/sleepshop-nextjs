@@ -8,7 +8,7 @@ export const authUser = async () => {
     try {
         await connectToDB();
         console.log("Connected to DB");
-        const token = await cookies().get("token"); // اضافه کردن await
+        const token = await cookies().get("token");
         console.log("Token:", token);
         let user = null;
 

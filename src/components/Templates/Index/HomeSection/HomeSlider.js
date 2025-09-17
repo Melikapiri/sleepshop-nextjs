@@ -8,6 +8,7 @@ import "swiper/css/autoplay";
 import MoreGridBig from "@/src/components/Icons/MoreGridBig";
 import Truk from "@/src/components/Icons/Truk";
 import HeadPhone from "@/src/components/Icons/HeadPhone";
+import HomeSliderItem from "@/src/components/Templates/Index/HomeSection/HomeSliderItem";
 
 function HomeSlider() {
     return (
@@ -43,41 +44,16 @@ function HomeSlider() {
                         className="w-full"
                     >
                         <SwiperSlide>
-                            <div className="flex items-center justify-center gap-2.5">
-                                <div className="inline-block bg-white/10 p-2.5 rounded-lg">
-                                    <MoreGridBig className="w-7 h-7 text-white"/>
-                                </div>
-                                <div>
-                                    <p className="text-base sm:text-lg text-white">تنوع بالای محصولات</p>
-                                    <p className="font-Yekan-Light text-sm text-lightGray"> بیش از ۲۰۰ محصول</p>
-                                </div>
-                            </div>
+                            <HomeSliderItem icon={<MoreGridBig className="w-7 h-7 text-white"/>}  description="بیش از ۲۰۰ محصول" title="تنوع بالای محصولات"/>
                         </SwiperSlide>
 
                         <SwiperSlide>
-                            <div className="flex items-center justify-center gap-2.5">
-                                <div className="inline-block bg-white/10 p-2.5 rounded-lg">
-                                    <Truk className="w-7 h-7 text-white"/>
-                                </div>
-                                <div>
-                                    <p className="text-base sm:text-lg text-white">ارسال رایگان به سراسر کشور</p>
-                                    <p className="font-Yekan-Light text-sm text-lightGray">
-                                        ارسال با پست به سراسر کشور
-                                    </p>
-                                </div>
-                            </div>
+                            <HomeSliderItem icon={<Truk className="w-7 h-7 text-white"/>}  description="ارسال با پست به سراسر کشور"  title="ارسال رایگان به سراسر کشور"/>
                         </SwiperSlide>
 
                         <SwiperSlide>
-                            <div className="flex items-center justify-center gap-2.5">
-                                <div className="inline-block bg-white/10 p-2.5 rounded-lg">
-                                    <HeadPhone className="w-7 h-7 text-white"/>
-                                </div>
-                                <div>
-                                    <p className="text-base sm:text-lg text-white">پشتیبانی ۲۴ ساعته</p>
-                                    <p className="font-Yekan-Light text-sm text-lightGray"> پاسخگوی همیشگی</p>
-                                </div>
-                            </div>
+                            <HomeSliderItem icon={ <HeadPhone className="w-7 h-7 text-white"/>} description="پاسخگوی همیشگی" title="پشتیبانی ۲۴ ساعته"/>
+
                         </SwiperSlide>
                     </Swiper>
                 </div>

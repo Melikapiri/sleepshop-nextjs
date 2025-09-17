@@ -171,10 +171,12 @@
 
     body {
         overflow: auto;
-        background-image: url("/images/grid.svg");
-        background-position: center;
         font-family: "Yekan Regular";
         overflow-x: hidden;
+    }
+    .backgroundImage{
+        background-image: url("/images/grid.svg");
+        background-position: center;
     }
 
     .mySwiper .swiper-wrapper {

@@ -17,7 +17,7 @@ export default async function Home() {
 
     return (
 
-        <div className="background">
+        <div className="backgroundImage">
             <Header/>
             <main>
                 <HomeSection/>
