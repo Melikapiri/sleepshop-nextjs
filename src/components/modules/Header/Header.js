@@ -6,7 +6,6 @@ import connectToDB from "@/configs/db";
 import {authUser} from "@/src/utils/AuthServer";
 
 async function Header(props) {
-
     await connectToDB()
     const user = await authUser();
     console.log("user =>", user)

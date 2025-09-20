@@ -25,7 +25,6 @@ export default function RootLayout({children}) {
                 pauseOnHover={false}
                 draggable
                 transition={Slide}
-
             />
             <AOSInit/>
             {children}

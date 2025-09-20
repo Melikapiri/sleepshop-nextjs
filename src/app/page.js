@@ -12,6 +12,7 @@ import Footer from "@/src/components/modules/Footer/Footer";
 import Category from "@/models/Category";
 
 export default async function Home() {
+    await connectToDB()
     const categories = await Category.find({}).select('-__v');
 
 
