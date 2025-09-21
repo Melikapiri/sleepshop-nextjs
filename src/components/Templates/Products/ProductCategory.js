@@ -4,7 +4,7 @@ import ChevronDown from "@/src/components/Icons/ChevronDown";
 
 function ProductCategory({categories}) {
 
-    const [closeCategory, setCloseCategory] = useState(true)
+    const [closeCategory, setCloseCategory] = useState(false)
 
     return (
         <div className="rounded-2xl p-4.5 bg-lightGray3 font-Yekan-Medium ">

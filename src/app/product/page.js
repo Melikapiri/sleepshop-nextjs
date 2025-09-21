@@ -9,19 +9,20 @@ import OfferCard from "@/src/components/modules/OfferCard/OfferCard";
 
 async function Page(props) {
     await connectToDB()
-    // const products = await Product.find({}).select('-__v');
+    const products = await Product.find({}).select('-__v');
     const categories = await Category.find({}).select('-__v');
     console.log("category =>>>>", categories)
+    console.log("products =>>>>", products)
 
 
     return (
         <div className="  my-10 ">
-            <div className="w-[94.52%] mx-auto grid grid-cols-12 gap-4 xl:gap-8">
+            <div className=" flex items-start  flex-col lg:flex-row container xl:max-w-[94.52%] mx-auto gap-4 ">
                 <FilterSideBarProduct categories={JSON.parse(JSON.stringify(categories))}/>
-                <section className="col-span-full sm:col-span-8  lg:col-span-9 order-1 lg:order-2">
+                <section className="flex flex-col w-full  gap-4">
 
                     <div
-                        className="hidden md:flex items-center justify-between gap-x-6 h-14 px-8 mb-8  bg-lightGray3 rounded-2xl ">
+                        className="hidden md:flex items-center justify-between gap-x-6 h-14 px-8   bg-lightGray3 rounded-2xl ">
                         <div className="flex items-center gap-x-2">
                             <span className="flex items-center gap-2 font-Yekan-Medium text-base  ">
                                 <SortIcon className="w-5 h-5"/>مرتب سازی  </span>
@@ -79,19 +80,20 @@ async function Page(props) {
                             className="hidden xl:block font-Yekan-Medium text-sm text-[#404040]"> 3150 محصول موجود است</span>
                     </div>
 
-                    <div className="grid gap-10  xl:gap-10 lg:gap-5 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                        <OfferCard/>
-                        <OfferCard/>
-                        <OfferCard/>
-                        <OfferCard/>
-                        <OfferCard/>
-                        <OfferCard/>
-                        <OfferCard/>
+                    <div
+                        className="grid gap-4 sm:gap-6 xl:gap-10 lg:gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                        {products.slice(0,8).map(product => <OfferCard products={JSON.parse(JSON.stringify(product))}
+                                                            key={product.id}/>)}
+                        {/*<OfferCard/>*/}
+                        {/*<OfferCard/>*/}
+                        {/*<OfferCard/>*/}
+                        {/*<OfferCard/>*/}
+                        {/*<OfferCard/>*/}
+                        {/*<OfferCard/>*/}
                     </div>
 
 
                 </section>
-
             </div>
             <div className="flex justify-center items-center gap-4 mt-6">
                 <button

@@ -1,14 +1,18 @@
 import React from 'react';
 import Sparkles from "@/src/components/Icons/Sparkles";
+import Image from 'next/image'
 
-function OfferCard(props) {
+function OfferCard({products}) {
+    console.log(" props: => ", products)
     return (
         <div
             className="flex gap-3 sm:gap-0 sm:block bg-lightGray2 p-3.5 rounded-xl h-[118px] sm:h-auto">
-            <div className="w-32 sm:w-auto">
-                <img
+            <div className="w-32 sm:h-52 lg:h-40 xl:h-[218px]  sm:w-auto">
+                <Image
+                    width={700}
+                    height={700}
                     className="block w-full h-full object-cover rounded-lg"
-                    src="/images/toshak/t-1.png"
+                    src={products.img}
                     alt="toshak 1"
                 />
             </div>
@@ -17,8 +21,7 @@ function OfferCard(props) {
                 className="hidden sm:block text-sm font-Yekan-Medium mb-3 mt-4 line-clamp-1	"
             >
                 {" "}
-                تشک طبی بدون فنر پارادوکس
-            </a>
+                {products.title}            </a>
             <div className=" bg-white rounded-lg  p-2 w-full">
                 <a
                     href="#"
@@ -27,24 +30,33 @@ function OfferCard(props) {
                     {" "}
                     تشک طبی بدون فنر پارادوکس
                 </a>
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between  h-12">
                     <div>
-                        <p className="flex items-center text-[12px]/normal sm:text-base gap-2 text-lightGray ">
-                            <span className="line-through">16.500.000</span>
-                            <span className="line-through text-xs">تومان</span>
-                        </p>
-                        <p className="text-sm sm:text-base">
+                        {
+                            products.discount ? (
+                                <p className="flex items-center text-[12px]/normal  tracking-tight sm:text-base gap-2 text-lightGray ">
+                                    <span className="line-through">{products.price.toLocaleString()}</span>
+                                    <span className="line-through text-xs">تومان</span>
+                                </p>):null
+                        }
 
-                            15.900.000</p>
+                        <p className="flex items-center gap-1 text-sm sm:text-base">
+
+
+                            {products.finalPrice.toLocaleString()} <span className=" text-xs">تومان</span>
+                        </p>
                     </div>
                     <div
-                        className="bg-secondPrimaryColor text-lightBlue p-2 sm:py-2.5 px-2 rounded-lg text-base ">
-                        <Sparkles className="w-4 h-4" />
+                        className="bg-secondPrimaryColor text-lightBlue py-2 px-2.5 rounded-lg ">
+                        {
+                            !products.discount ? (<Sparkles className="w-4 h-4"/>
+                            ) : (<span className="text-sm ">{products.discount}%</span>)
+                        }
                         {/*20 %*/}
                     </div>
                 </div>
             </div>
-        </div>    );
+        </div>);
 }
 
 export default OfferCard;

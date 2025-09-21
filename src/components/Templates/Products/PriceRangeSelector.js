@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import ChevronDown from "@/src/components/Icons/ChevronDown";
 
 function PriceRangeSelector() {
-    const [closeRangePrice, setCloseRangePrice] = useState(true)
+    const [closeRangePrice, setCloseRangePrice] = useState(false)
 
 
     return (
@@ -17,17 +17,17 @@ function PriceRangeSelector() {
 
             <div
                 className={`${!closeRangePrice ? `opacity-0 h-0 p-0 invisible` : `h-auto py-6 opacity-100 visible`} transition-all flex flex-col gap-4 text-sm text-lightTextGray`}>
-                <div className="flex gap-2 lg:gap-7 items-center">
-                    از :
+                <div className="flex gap-1 xl:gap-2 w-full items-center">
+                    <span className="block ml-2">از :</span>
                     <input
-                        className="outline-0 px-3 py-2 rounded-lg placeholder:text-xs shadow focus:border focus:border-lightBlue"
+                        className="outline-0 px-3 w-full lg:w-[80%] py-2 rounded-lg placeholder:text-xs shadow focus:border focus:border-lightBlue"
                         type="text" placeholder=" مثال 200,000 تومان   "/>
 
                 </div>
-                <div className="flex gap-2 lg:gap-7 items-center">
-                    تا :
+                <div className="flex gap-1 xl:gap-2 w-full items-center">
+                    <span className="block ml-2">تا :</span>
                     <input
-                        className="outline-0 px-3 py-2 rounded-lg placeholder:text-xs shadow focus:border focus:border-lightBlue"
+                        className="outline-0 px-3 w-full lg:w-[80%] py-2 rounded-lg placeholder:text-xs shadow focus:border focus:border-lightBlue"
                         type="text" placeholder="مثال 800,000 تومان "/>
                 </div>
             </div>

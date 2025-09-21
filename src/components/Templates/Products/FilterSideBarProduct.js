@@ -6,7 +6,7 @@ import ProductCategory from "@/src/components/Templates/Products/ProductCategory
 
 function FilterSideBarProduct({categories}) {
     return (
-        <aside className="col-span-full sm:col-span-4 lg:col-span-3 lg:sticky top-6 space-y-6">
+        <aside className=" grid w-full  lg:max-w-72 top-6 ">
             {/* SearchBox */}
             <form id="archive_filters" className="space-y-6">
                 <div className="flex flex-col gap-4 ">
