@@ -5,11 +5,12 @@ import SortIcon from "@/src/components/Icons/SortIcon";
 import OfferCard from "@/src/components/modules/OfferCard/OfferCard";
 import ChevronLeft from "@/src/components/Icons/ChevronLeft";
 import {useFilterProduct} from "@/src/Context/FilterProductContext";
+import SkeletonCard from "@/src/components/modules/SkeletonCard/SkeletonCard";
 
 
 function ProductWrapper() {
 
-    const {allProduct, setAllProduct} = useFilterProduct()
+    const {allProduct, setAllProduct, loading} = useFilterProduct()
 
     const [allCategories, setCategories] = useState([])
 
@@ -91,7 +92,13 @@ function ProductWrapper() {
 
                     <div
                         className="grid gap-4 sm:gap-6 xl:gap-10 lg:gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                        {allProduct.map(product => <OfferCard products={product} key={product.id}/>)}
+                        {loading
+                            ? allProduct.map((product) => (
+                                <OfferCard products={product} key={product.id}/>
+                            ))
+                            : Array(4)
+                                .fill(null)
+                                .map((_, i) => <SkeletonCard key={i}/>)}
                     </div>
 
 

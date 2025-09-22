@@ -1,11 +1,12 @@
 "use client";
 
-import React, { createContext, useState, useEffect, useContext } from "react";
+import React, {createContext, useState, useEffect, useContext} from "react";
 
 const FilterProduct = createContext();
 
-export function FilterProductProvider({ children }) {
+export function FilterProductProvider({children}) {
     const [allProduct, setAllProduct] = useState([]);
+    const [loading, setLoading] = useState(false);
     const [originalProducts, setOriginalProducts] = useState([]);
 
     useEffect(() => {
@@ -14,6 +15,7 @@ export function FilterProductProvider({ children }) {
             const data = await res.json();
             setAllProduct(data);
             setOriginalProducts(data);
+            setLoading(true)
         };
         getProducts();
     }, []);
@@ -24,6 +26,7 @@ export function FilterProductProvider({ children }) {
                 allProduct,
                 setAllProduct,
                 originalProducts,
+                loading, setLoading
             }}
         >
             {children}
