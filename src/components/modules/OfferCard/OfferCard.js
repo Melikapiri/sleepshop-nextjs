@@ -9,7 +9,7 @@ function OfferCard({products}) {
                 <Image
                     width={700}
                     height={700}
-                    className="block w-full h-full object-cover rounded-lg"
+                    className="block w-full h-full object-cover rounded-lg shadow-md border border-stone-300"
                     src={products.img}
                     alt={products.title || "product image"}
                 />

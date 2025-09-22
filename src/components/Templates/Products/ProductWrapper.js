@@ -6,13 +6,13 @@ import OfferCard from "@/src/components/modules/OfferCard/OfferCard";
 import ChevronLeft from "@/src/components/Icons/ChevronLeft";
 import {useFilterProduct} from "@/src/Context/FilterProductContext";
 import SkeletonCard from "@/src/components/modules/SkeletonCard/SkeletonCard";
-
+import PaginationComponent from "@/src/components/modules/PaginationComponent/PaginationComponent";
 
 function ProductWrapper() {
 
     const {allProduct, setAllProduct, loading} = useFilterProduct()
-
     const [allCategories, setCategories] = useState([])
+
 
     useEffect(() => {
 
@@ -28,9 +28,10 @@ function ProductWrapper() {
 
     return (
         <>
-            <div className=" flex items-start  flex-col lg:flex-row container xl:max-w-[94.52%] mx-auto gap-4 ">
+            <div
+                className=" flex items-start  flex-col lg:flex-row container xl:max-w-[94.52%] mx-auto gap-4 lg:gap-6 ">
                 <FilterSideBarProduct categories={allCategories}/>
-                <section className="flex flex-col w-full  gap-4">
+                <section className="flex flex-col w-full  gap-4 lg:gap-6">
                     <div
                         className="relative hidden md:flex items-center justify-between gap-x-6 h-14 px-8   bg-lightGray3 rounded-2xl ">
                         <div className="flex items-center gap-x-2">
@@ -91,12 +92,12 @@ function ProductWrapper() {
                     </div>
 
                     <div
-                        className="grid gap-4 sm:gap-6 xl:gap-10 lg:gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                        className="grid gap-4 sm:gap-6  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                         {loading
                             ? allProduct.map((product) => (
                                 <OfferCard products={product} key={product.id}/>
                             ))
-                            : Array(4)
+                            : Array(8)
                                 .fill(null)
                                 .map((_, i) => <SkeletonCard key={i}/>)}
                     </div>
@@ -104,21 +105,9 @@ function ProductWrapper() {
 
                 </section>
             </div>
-            <div className="flex justify-center items-center gap-4 mt-6">
-                <button
-                    className="rounded-full border border-slate-300 p-1.5 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-slate-800 hover:border-slate-800 focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                    type="button">
-                    <ChevronLeft className="w-4 h-4 rotate-180"/>
-                </button>
-                <b className="text-slate-600">
-                    1 از 10
-                </b>
-                <button disabled
-                        className="rounded-full border border-slate-300 p-1.5 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-slate-800 hover:border-slate-800 focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                        type="button">
-                    <ChevronLeft className="w-4 h-4"/>
-                </button>
-            </div>
+            {/*pagination*/}
+            <PaginationComponent setAllProduct={setAllProduct} allProduct={allProduct} itemCount={8}
+                                 currentPageNumber={1}/>
         </>);
 }
 
