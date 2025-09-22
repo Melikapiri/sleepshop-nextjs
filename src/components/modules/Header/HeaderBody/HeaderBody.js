@@ -13,8 +13,6 @@ import {useMenu} from "@/src/Context/AppContext";
 import Signin from "@/src/components/Icons/SignIn";
 
 function HeaderBody({isLogin, username}) {
-    console.log(username)
-    console.log("is loginnn =>>>", isLogin)
     const {isMenuOpen, toggleMenu, setIsMenuOpen} = useMenu()
     return (
         <div className="flex justify-between items-center mx-auto mt-3 lg:mt-6 ">
