@@ -33,7 +33,7 @@ function Timer(props) {
 
     return (
         <div
-            className="relative overflow-hidden flex flex-col items-center justify-center  bg-primaryColor sm:px-7 pt-8 rounded-xl">
+            className="relative overflow-hidden flex flex-col items-center justify-center w-auto  xl:w-[28rem] bg-primaryColor sm:px-7 pt-8 rounded-xl">
             <div className="flex items-center justify-between flex-row xl:flex-col">
                 <h3 className="font-Modam-SemiBold text-xl sm:text-2xl text-white">
                     {" "}

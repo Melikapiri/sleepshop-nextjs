@@ -1,35 +1,31 @@
 "use client";
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from "react";
 import ChevronLeft from "@/src/components/Icons/ChevronLeft";
 
-function PaginationComponent({originalProducts, allProduct, setAllProduct, itemCount, currentPageNumber,productCount}) {
+function PaginationComponent({ allProduct, setPaginatedProducts, itemCount, currentPageNumber }) {
+    const [currentPage, setCurrentPage] = useState(currentPageNumber || 1);
 
-
-    const [currentPage, setCurrentPage] = useState(currentPageNumber);
-
-    const totalPages = Math.ceil(originalProducts.length / itemCount);
-
-    const indexOfFirstProduct = (currentPage - 1) * itemCount;
-    const indexOfLastProduct = currentPage * itemCount;
+    const totalPages = Math.ceil(allProduct.length / itemCount) || 1;
 
     useEffect(() => {
-        const resultPagination = originalProducts.slice(indexOfFirstProduct, indexOfLastProduct);
-        setAllProduct(resultPagination);
-    }, [originalProducts, currentPage, itemCount,productCount]);
+        const start = (currentPage - 1) * itemCount;
+        const end = currentPage * itemCount;
+        const resultPagination = allProduct.slice(start, end);
+
+        setPaginatedProducts(resultPagination);
+    }, [allProduct, currentPage, itemCount, setPaginatedProducts]);
 
     const handlePrevPage = () => {
-        if (currentPage > 1) {
-            setCurrentPage((prev) => prev - 1);
-        }
+        setCurrentPage((prev) => Math.max(prev - 1, 1));
     };
 
     const handleNextPage = () => {
-        if (currentPage < totalPages) {
-            setCurrentPage((prev) => prev + 1);
-        }
+        setCurrentPage((prev) => Math.min(prev + 1, totalPages));
     };
 
-    return originalProducts.length > 0 && (
+    if (!allProduct.length) return null;
+
+    return (
         <div className="flex flex-col items-center gap-4 mt-6">
             <div className="flex justify-center items-center gap-4">
                 <button
@@ -38,11 +34,11 @@ function PaginationComponent({originalProducts, allProduct, setAllProduct, itemC
                     onClick={handlePrevPage}
                     disabled={currentPage === 1}
                 >
-                    <ChevronLeft className="w-4 h-4 rotate-180"/>
+                    <ChevronLeft className="w-4 h-4 rotate-180" />
                 </button>
 
                 <b className="text-slate-600">
-                    {currentPage} از {totalPages || 1}
+                    {currentPage} از {totalPages}
                 </b>
 
                 <button
@@ -51,7 +47,7 @@ function PaginationComponent({originalProducts, allProduct, setAllProduct, itemC
                     onClick={handleNextPage}
                     disabled={currentPage === totalPages}
                 >
-                    <ChevronLeft className="w-4 h-4"/>
+                    <ChevronLeft className="w-4 h-4" />
                 </button>
             </div>
         </div>

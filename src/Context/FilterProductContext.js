@@ -1,48 +1,35 @@
 "use client";
-
-import React, {createContext, useState, useEffect, useContext} from "react";
+import React, { createContext, useState, useEffect, useContext } from "react";
 
 const FilterProduct = createContext();
 
-export function FilterProductProvider({children}) {
-    const [allProduct, setAllProduct] = useState([]);
-    const [loading, setLoading] = useState(false);
+export function FilterProductProvider({ children }) {
     const [originalProducts, setOriginalProducts] = useState([]);
-    const [productCount, setProductCount] = useState();
-
-
-    const [update, setUpdate] = useState(false)
+    const [allProduct, setAllProduct] = useState([]);
+    const [paginatedProducts, setPaginatedProducts] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         const getProducts = async () => {
             const res = await fetch(`http://localhost:3000/api/products`);
             const data = await res.json();
-            setAllProduct(data);
             setOriginalProducts(data);
-            setLoading(true)
+            setAllProduct(data);
+            setLoading(true);
         };
         getProducts();
     }, []);
 
-
-    useEffect(() => {
-        setProductCount(allProduct.length)
-    }, [allProduct, update]);
-    //
-
     return (
         <FilterProduct.Provider
             value={{
+                originalProducts,
                 allProduct,
                 setAllProduct,
-                originalProducts,
+                paginatedProducts,
+                setPaginatedProducts,
                 loading,
                 setLoading,
-                setOriginalProducts,
-                productCount,
-                update,
-                setUpdate
-
             }}
         >
             {children}

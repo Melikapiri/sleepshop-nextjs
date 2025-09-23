@@ -8,10 +8,9 @@ function ProductInventory() {
 
     useEffect(() => {
         if (selected) {
-            const productAvailable = originalProducts.filter(
+            const productAvailable = allProduct.filter(
                 (product) => product.isAvailable
             );
-            console.log("محصولات موجود ", productAvailable);
             setAllProduct(productAvailable);
         } else {
             setAllProduct(originalProducts);
@@ -19,7 +18,7 @@ function ProductInventory() {
     }, [selected, originalProducts, setAllProduct]);
 
     useEffect(() => {
-        console.log(selected)
+        console.log("محصولات موجود : ", selected)
     }, [selected]);
     return (
         <div

@@ -1,13 +1,12 @@
 "use client";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import FilterDropdown from "@/src/components/Templates/Products/FilterDropdown";
-import {useFilterProduct} from "@/src/Context/FilterProductContext";
+import { useFilterProduct } from "@/src/Context/FilterProductContext";
 import Search from "@/src/components/Icons/Search";
-import {toast} from "react-toastify";
-import {NumericFormat} from "react-number-format";
+import { NumericFormat } from "react-number-format";
 
 function PriceRangeSelector() {
-    const {allProduct, setAllProduct, originalProducts} = useFilterProduct();
+    const { setAllProduct, originalProducts } = useFilterProduct();
 
     const [minPrice, setMinPrice] = useState(null);
     const [maxPrice, setMaxPrice] = useState(null);
@@ -62,7 +61,7 @@ function PriceRangeSelector() {
                 className="p-1.5 flex items-center gap-3 text-sm justify-center bg-lightBlue text-white rounded-xl"
             >
                 جستجو
-                <Search className="w-4 h-4 "/>
+                <Search className="w-4 h-4 " />
             </button>
         </FilterDropdown>
     );

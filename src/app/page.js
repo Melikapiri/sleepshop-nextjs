@@ -10,10 +10,12 @@ import ArticleSection from "@/src/components/Templates/Index/ArticleSection/Arti
 import Header from "@/src/components/modules/Header/Header";
 import Footer from "@/src/components/modules/Footer/Footer";
 import Category from "@/models/Category";
+import Product from "@/models/Product"
 
 export default async function Home() {
     await connectToDB()
     const categories = await Category.find({}).select('-__v');
+    const products = await Product.find({}).select('-__v');
 
 
     return (
@@ -23,7 +25,7 @@ export default async function Home() {
             <main>
                 <HomeSection/>
                 <CategorySection data={categories}/>
-                <SpecialOffers/>
+                <SpecialOffers products={products}/>
                 <Banner/>
                 <PopularSection/>
                 <FollowUs/>
