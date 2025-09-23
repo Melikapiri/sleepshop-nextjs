@@ -10,13 +10,10 @@ import PaginationComponent from "@/src/components/modules/PaginationComponent/Pa
 
 function ProductWrapper() {
 
-    const {allProduct, setAllProduct, loading} = useFilterProduct()
+    const {allProduct, setAllProduct, originalProducts, loading, productCount} = useFilterProduct()
     const [allCategories, setCategories] = useState([])
-
-
+    console.log("all product => ", allCategories)
     useEffect(() => {
-
-
         const getCategories = async () => {
             const res = await fetch(`http://localhost:3000/api/categories`)
             const data = await res.json()
@@ -24,8 +21,6 @@ function ProductWrapper() {
         }
         getCategories()
     }, [])
-
-
     return (
         <>
             <div
@@ -87,8 +82,9 @@ function ProductWrapper() {
                             </a>
                         </ul>
 
-                        <span
-                            className="hidden xl:block font-Yekan-Medium text-sm text-[#404040]"> 3150 محصول موجود است</span>
+                        <span className="hidden xl:block font-Yekan-Medium text-sm text-[#404040]">
+  {originalProducts.length} محصول موجود است
+</span>
                     </div>
 
                     <div
@@ -105,9 +101,15 @@ function ProductWrapper() {
 
                 </section>
             </div>
-            {/*pagination*/}
-            <PaginationComponent setAllProduct={setAllProduct} allProduct={allProduct} itemCount={8}
-                                 currentPageNumber={1}/>
+
+                    <PaginationComponent
+                        originalProducts={originalProducts}
+                        allProduct={allProduct}
+                        setAllProduct={setAllProduct}
+                        itemCount={8}
+                        currentPageNumber={1}
+                    />
+
         </>);
 }
 

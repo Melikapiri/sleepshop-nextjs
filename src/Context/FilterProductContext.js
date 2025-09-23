@@ -8,6 +8,10 @@ export function FilterProductProvider({children}) {
     const [allProduct, setAllProduct] = useState([]);
     const [loading, setLoading] = useState(false);
     const [originalProducts, setOriginalProducts] = useState([]);
+    const [productCount, setProductCount] = useState();
+
+
+    const [update, setUpdate] = useState(false)
 
     useEffect(() => {
         const getProducts = async () => {
@@ -20,13 +24,25 @@ export function FilterProductProvider({children}) {
         getProducts();
     }, []);
 
+
+    useEffect(() => {
+        setProductCount(allProduct.length)
+    }, [allProduct, update]);
+    //
+
     return (
         <FilterProduct.Provider
             value={{
                 allProduct,
                 setAllProduct,
                 originalProducts,
-                loading, setLoading
+                loading,
+                setLoading,
+                setOriginalProducts,
+                productCount,
+                update,
+                setUpdate
+
             }}
         >
             {children}
