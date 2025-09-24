@@ -22,7 +22,7 @@ function ProductInventory() {
     }, [selected]);
     return (
         <div
-            className="flex justify-between gap-x-6 h-full rounded-2xl p-4.5 bg-lightGray3 font-Yekan-Medium text-sm">
+            className="flex justify-between gap-x-6 h-full rounded-2xl p-4.5 bg-white border border-stone-100 lg:border-0 lg:bg-lightGray3 font-Yekan-Medium text-sm">
 
             نمایش کالاهای موجود
             <label className="relative inline-flex items-center cursor-pointer">

@@ -41,7 +41,7 @@ function SortSection() {
                 <li
                     key={option}
                     role="button"
-                    className={`sort-btn px-4 ${
+                    className={` px-4 ${
                         activeSort === option ? "sort-btn--active" : ""
                     }`}
                     onClick={() => handleSort(option)}

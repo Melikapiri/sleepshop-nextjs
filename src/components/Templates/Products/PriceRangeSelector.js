@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import FilterDropdown from "@/src/components/Templates/Products/FilterDropdown";
+import ToggleSection from "@/src/components/modules/ToggleSection/ToggleSection";
 import { useFilterProduct } from "@/src/Context/FilterProductContext";
 import Search from "@/src/components/Icons/Search";
 import { NumericFormat } from "react-number-format";
@@ -32,8 +32,8 @@ function PriceRangeSelector() {
     };
 
     return (
-        <FilterDropdown title={"بازه قیمتی"}>
-            <div className="flex gap-1 xl:gap-2 w-full items-center">
+        <ToggleSection title={"بازه قیمتی"}>
+            <div className="flex gap-1 xl:gap-2 w-full items-center ">
                 <NumericFormat
                     thousandSeparator=","
                     allowNegative={false}
@@ -63,7 +63,7 @@ function PriceRangeSelector() {
                 جستجو
                 <Search className="w-4 h-4 " />
             </button>
-        </FilterDropdown>
+        </ToggleSection>
     );
 }
 

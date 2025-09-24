@@ -1,12 +1,12 @@
 "use client"
 import React, {useState} from 'react';
 import ChevronDown from "@/src/components/Icons/ChevronDown";
-import FilterDropdown from "@/src/components/Templates/Products/FilterDropdown";
+import ToggleSection from "@/src/components/modules/ToggleSection/ToggleSection";
 
 function ProductCategory({categories}) {
 
     return (
-        <FilterDropdown title="دسته بندی">
+        <ToggleSection title="دسته بندی">
             {
                 categories.data?.map((category, index) => (
                     <label key={index} htmlFor={`category-${index}`}
@@ -26,7 +26,7 @@ function ProductCategory({categories}) {
                     </label>
                 ))
             }
-        </FilterDropdown>
+        </ToggleSection>
     );
 }
 
