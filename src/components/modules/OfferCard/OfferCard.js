@@ -1,6 +1,7 @@
 import React from 'react';
 import Sparkles from "@/src/components/Icons/Sparkles";
 import Image from 'next/image'
+import SkeletonCard from "@/src/components/modules/SkeletonCard/SkeletonCard";
 
 function OfferCard({products}) {
     return products ? (
@@ -58,7 +59,7 @@ function OfferCard({products}) {
             </div>
         </div>
     ) : (
-        <>درحال لود</>
+        <SkeletonCard/>
     );
 }
 
