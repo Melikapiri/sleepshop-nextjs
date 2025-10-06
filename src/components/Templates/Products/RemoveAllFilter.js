@@ -7,7 +7,7 @@ function RemoveAllFilter(props) {
 
     const {setAllProduct, originalProducts,} = useFilterProduct();
     const removeFilteringHandler = () => {
-        setAllProduct(originalProducts)
+        setAllProduct([...originalProducts])
     }
     return (
         <div className="flex justify-between gap-x-6 h-full rounded-2xl p-4.5  bg-white border border-stone-100 lg:bg-lightGray3 ">

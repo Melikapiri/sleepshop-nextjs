@@ -16,11 +16,11 @@ function PaginationComponent({ allProduct, setPaginatedProducts, itemCount, curr
     }, [allProduct, currentPage, itemCount, setPaginatedProducts]);
 
     const handlePrevPage = () => {
-        setCurrentPage((prev) => Math.max(prev - 1, 1));
+        setCurrentPage((prev) => prev - 1);
     };
 
     const handleNextPage = () => {
-        setCurrentPage((prev) => Math.min(prev + 1, totalPages));
+        setCurrentPage((prev) => prev + 1);
     };
 
     if (!allProduct.length) return null;

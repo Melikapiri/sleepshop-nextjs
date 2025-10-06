@@ -21,7 +21,6 @@ function Timer(props) {
         return () => clearInterval(intervalId);
     }, [timeLeft]);
 
-    // تبدیل ثانیه به روز، ساعت، دقیقه و ثانیه
     const days = Math.floor(timeLeft / (24 * 60 * 60));
     const hours = Math.floor((timeLeft % (24 * 60 * 60)) / (60 * 60));
     const minutes = Math.floor((timeLeft % (60 * 60)) / 60);
