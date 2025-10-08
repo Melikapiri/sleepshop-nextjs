@@ -1,5 +1,5 @@
 "use client";
-import React, { createContext, useState, useEffect, useContext } from "react";
+import React, { createContext, useState, useEffect, useContext, useMemo } from "react";
 
 const FilterProduct = createContext();
 
@@ -14,11 +14,21 @@ export function FilterProductProvider({ children }) {
             const res = await fetch(`http://localhost:3000/api/products`);
             const data = await res.json();
             setOriginalProducts(data);
-            setAllProduct(data);
             setLoading(true);
         };
         getProducts();
     }, []);
+
+    const shuffledProducts = useMemo(() => {
+        if (originalProducts.length === 0) return [];
+        return [...originalProducts].sort(() => 0.5 - Math.random());
+    }, [originalProducts]);
+
+    useEffect(() => {
+        if (shuffledProducts.length > 0) {
+            setAllProduct(shuffledProducts);
+        }
+    }, [shuffledProducts]);
 
     return (
         <FilterProduct.Provider

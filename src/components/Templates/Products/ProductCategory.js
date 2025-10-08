@@ -27,7 +27,7 @@ function ProductCategory({ categories }) {
     }, [selectedCategories]);
 
     return (
-        <ToggleSection title="دسته بندی">
+        <ToggleSection scrollable={true} className="bg-white lg:bg-lightGray3" title="دسته بندی">
             {categories.data?.map((category, index) => (
                 <label
                     key={index}

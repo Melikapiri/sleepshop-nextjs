@@ -17,9 +17,7 @@ function ProductInventory() {
         }
     }, [selected, originalProducts, setAllProduct]);
 
-    useEffect(() => {
-        console.log("محصولات موجود : ", selected)
-    }, [selected]);
+
     return (
         <div
             className="flex justify-between gap-x-6 h-full rounded-2xl p-4.5 bg-white border border-stone-100 lg:border-0 lg:bg-lightGray3 font-Yekan-Medium text-sm">

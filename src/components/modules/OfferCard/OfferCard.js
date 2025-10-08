@@ -5,7 +5,7 @@ import SkeletonCard from "@/src/components/modules/SkeletonCard/SkeletonCard";
 
 function OfferCard({products}) {
     return products ? (
-        <div className="flex gap-3 sm:gap-0 sm:block bg-lightGray2 p-3.5 rounded-xl h-[118px] sm:h-auto">
+        <div className="flex sm:flex-col sm:justify-between gap-3 sm:gap-0 sm:block bg-lightGray2 p-3.5 rounded-xl h-[118px] sm:h-auto">
             <div className="w-32 sm:h-52 lg:h-40 xl:h-[218px] sm:w-auto">
                 <Image
                     width={700}

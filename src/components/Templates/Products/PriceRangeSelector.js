@@ -1,12 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import React, {useState} from "react";
 import ToggleSection from "@/src/components/modules/ToggleSection/ToggleSection";
-import { useFilterProduct } from "@/src/Context/FilterProductContext";
+import {useFilterProduct} from "@/src/Context/FilterProductContext";
 import Search from "@/src/components/Icons/Search";
-import { NumericFormat } from "react-number-format";
+import {NumericFormat} from "react-number-format";
 
 function PriceRangeSelector() {
-    const { setAllProduct, originalProducts } = useFilterProduct();
+    const {setAllProduct, originalProducts} = useFilterProduct();
 
     const [minPrice, setMinPrice] = useState(null);
     const [maxPrice, setMaxPrice] = useState(null);
@@ -32,7 +32,7 @@ function PriceRangeSelector() {
     };
 
     return (
-        <ToggleSection title={"بازه قیمتی"}>
+        <ToggleSection className="bg-white lg:bg-lightGray3" title={"بازه قیمتی"}>
             <div className="flex gap-1 xl:gap-2 w-full items-center ">
                 <NumericFormat
                     thousandSeparator=","
@@ -61,7 +61,7 @@ function PriceRangeSelector() {
                 className="p-1.5 flex items-center gap-3 text-sm justify-center bg-lightBlue text-white rounded-xl"
             >
                 جستجو
-                <Search className="w-4 h-4 " />
+                <Search className="w-4 h-4 "/>
             </button>
         </ToggleSection>
     );
