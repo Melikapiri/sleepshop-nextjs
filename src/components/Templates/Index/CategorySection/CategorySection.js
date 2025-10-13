@@ -16,7 +16,7 @@ function CategorySection({data}) {
                 <div className="grid grid-cols-3 md:grid-cols-2 xl:grid-cols-3 gap-12 md:gap-10">
                     {
                         data.map(category => (
-                            <CategoryItem key={category.id} param={category.name} image={category.img}
+                            <CategoryItem key={category.id} id={category.id} param={category.name} image={category.img}
                                           title={category.displayName}
                                           description={category.description}/>
                         ))

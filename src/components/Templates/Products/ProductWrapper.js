@@ -11,14 +11,18 @@ import SortSection from "@/src/components/Templates/Products/SortSection";
 import {motion} from "framer-motion";
 
 function ProductWrapper() {
-    const pathname = usePathname()
-    console.log(pathname)
+    const pathname = usePathname().split("/")
+    const havingCategories = pathname.includes("category")
+    console.log("havingCategories=>? ", havingCategories)
+    console.log("pathname =>>>>>>> ", pathname[pathname.length - 1])
     const {
         allProduct,              // Filtered list
-        paginatedProducts,       // Paginated list (final for display)
+        paginatedProducts,       // Paginated list
         setPaginatedProducts,
+        setAllProduct,
         originalProducts,
         loading,
+        change, setChange
     } = useFilterProduct();
 
     const [allCategories, setCategories] = useState([]);
@@ -32,6 +36,13 @@ function ProductWrapper() {
         getCategories();
     }, []);
 
+    useEffect(() => {
+        if (havingCategories) {
+            setAllProduct(originalProducts.filter(product => product.category.name === pathname[pathname.length - 1]))
+        }
+    }, [originalProducts]);
+
+    console.log("filter result =>>>>>",)
     return (
         <>
             <div className="flex items-start flex-col lg:flex-row container xl:max-w-[94.52%] mx-auto gap-4 lg:gap-6">
@@ -52,21 +63,40 @@ function ProductWrapper() {
                     </div>
 
                     <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                        {loading
-                            ? paginatedProducts.map((product) => (
 
-                                <motion.div
-                                    key={product.id}
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ ease: "easeOut", duration: 0.3 }}
-                                >
-                                    <OfferCard products={product} />
-                                </motion.div>
-                            ))
-                            : Array(8)
-                                .fill(null)
-                                .map((_, i) => <SkeletonCard key={i}/>)}
+                        {
+                            !havingCategories ? loading
+                                ? paginatedProducts.map((product) => (
+
+                                    <motion.div
+                                        key={product.id}
+                                        initial={{opacity: 0, y: 10}}
+                                        animate={{opacity: 1, y: 0}}
+                                        transition={{ease: "easeOut", duration: 0.3}}
+                                    >
+                                        <OfferCard products={product}/>
+                                    </motion.div>
+                                ))
+                                : Array(8)
+                                    .fill(null)
+                                    .map((_, i) => <SkeletonCard key={i}/>) : loading
+                                ? paginatedProducts.map((product) => (
+
+                                    <motion.div
+                                        key={product.id}
+                                        initial={{opacity: 0, y: 10}}
+                                        animate={{opacity: 1, y: 0}}
+                                        transition={{ease: "easeOut", duration: 0.3}}
+                                    >
+                                        <OfferCard products={product}/>
+                                    </motion.div>
+                                ))
+                                : Array(8)
+                                    .fill(null)
+                                    .map((_, i) => <SkeletonCard key={i}/>)
+                        }
+
+
                     </div>
                 </section>
             </div>
@@ -77,6 +107,8 @@ function ProductWrapper() {
                     setPaginatedProducts={setPaginatedProducts}
                     itemCount={8}
                     currentPageNumber={1}
+                    change={change}
+                    setChange={setChange}
                 />
             )}
         </>

@@ -23,7 +23,7 @@ function HomeSection(props) {
                     خواب وارداتی از کشور های معتبر در سراسر جهان</p>
                 <div className=" flex items-center justify-center mt-6 xs:mt-8">
                     <a className=" inline-flex items-center py-2 px-3 mx-auto bg-lightBlue text-white rounded-lg gap-2 font-Yekan-Medium text-base"
-                       href="/allProduct">مشاهده محصولات
+                       href="/products">مشاهده محصولات
                         <ChevronLeft className="w-4 h-4"/>
                     </a>
                 </div>

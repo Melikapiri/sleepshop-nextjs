@@ -12,12 +12,12 @@ export async function POST(req) {
         const { name, phone, email, password } = body;
 
         // Validation
-        if (!validateEmail(email) || !validatePassword(password)) {
-            return Response.json(
-                { message: "Email or password is invalid" },
-                { status: 419 }
-            );
-        }
+        // if (!validateEmail(email) || !validatePassword(password)) {
+        //     return Response.json(
+        //         { message: "Email or password is invalid" },
+        //         { status: 419 }
+        //     );
+        // }
 
         const isUserExist = await UserModel.findOne({
             $or: [{ name }, { email }, { phone }],
@@ -31,7 +31,7 @@ export async function POST(req) {
         }
 
         const hashedPassword = await hashPassword(password);
-        const accessToken = generateAccessToken({ email }); // تغییر از name به email
+        const accessToken = generateAccessToken({ email });
 
         const users = await UserModel.find({});
 

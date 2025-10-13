@@ -12,7 +12,7 @@ function OfferCard({products}) {
                     height={700}
                     className="block w-full h-full object-cover rounded-lg shadow-md border border-stone-300"
                     src={products.img}
-                    alt={products.title || "allProduct image"}
+                    alt={products.title || "products image"}
                 />
             </div>
 
