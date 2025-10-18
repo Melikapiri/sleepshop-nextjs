@@ -5,7 +5,6 @@ function Page(props) {
 
     return (
         <div>
-            این یک روت داینامیکه
 
             <div className="  my-10 ">
                 <CategoryWrapper/>

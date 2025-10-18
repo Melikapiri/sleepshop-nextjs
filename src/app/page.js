@@ -11,6 +11,7 @@ import Header from "@/src/Components/Modules/Shared/Header/Header";
 import Footer from "@/src/Components/Modules/Shared/Footer/Footer";
 import Category from "@/models/Category";
 import Product from "@/models/Product"
+import EmptyProductsMessage from "@/src/Components/Modules/Ui/EmptyProductsMessage/EmptyProductsMessage";
 
 export default async function Home() {
     await connectToDB()
@@ -23,6 +24,7 @@ export default async function Home() {
         <div className="backgroundImage">
             <Header/>
             <main>
+                <EmptyProductsMessage/>
                 <HomeSection/>
                 <CategorySection data={categories}/>
                 <SpecialOffers products={products}/>

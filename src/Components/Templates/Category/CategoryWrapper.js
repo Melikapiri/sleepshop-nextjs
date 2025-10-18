@@ -9,6 +9,10 @@ import {motion} from "framer-motion";
 import OfferCard from "@/src/Components/Modules/Ui/OfferCard/OfferCard";
 import SkeletonCard from "@/src/Components/Modules/Ui/SkeletonCard/SkeletonCard";
 import PaginationComponent from "@/src/Components/Modules/Features/PaginationComponent/PaginationComponent";
+import Search from "@/src/Components/Icons/Search";
+import SectionTitle from "@/src/Components/Modules/Ui/SectionTitle/SectionTitle";
+import EmptyProductsMessage from "@/src/Components/Modules/Ui/EmptyProductsMessage/EmptyProductsMessage";
+import {array} from "yup";
 
 function CategoryWrapper(props) {
     const [pathname, setPathname] = useState(usePathname().split("/"))
@@ -29,7 +33,7 @@ function CategoryWrapper(props) {
 
 
     const filterProductHandler = () => {
-        const filtered = allProduct.filter(product => product.category.name === pathname[pathname.length - 1]) ;
+        const filtered = allProduct.filter(product => product.category.name === pathname[pathname.length - 1]);
         setFilterProduct(filtered);
     }
 
@@ -40,6 +44,7 @@ function CategoryWrapper(props) {
     //
     useEffect(() => {
         filterProductHandler()
+        console.log(allProduct)
     }, [allProduct]);
 
 
@@ -49,23 +54,27 @@ function CategoryWrapper(props) {
                 {/*<FilterSideBarProduct categories={allCategories}/>*/}
 
                 <section className="flex flex-col w-full gap-4 lg:gap-6">
-                    <div
-                        className="relative hidden md:flex items-center justify-between gap-x-6 h-14 px-8 bg-lightGray3 rounded-2xl">
-                        <div className="flex items-center gap-x-2">
-                            <span className="flex items-center gap-2 font-Yekan-Medium text-base">
-                                <SortIcon className="w-5 h-5"/> مرتب سازی
-                            </span>
-                        </div>
-                        <SortSection/>
-                        <span className="hidden xl:block font-Yekan-Medium text-sm text-[#404040]">
-                            {filterProduct.length} محصول موجود است
-                        </span>
-                    </div>
+                    {/*<div*/}
+                    {/*    className="relative hidden md:flex items-center justify-between gap-x-6 h-14 px-8 bg-lightGray3 rounded-2xl">*/}
+                    {/*    <div className="flex items-center gap-x-2">*/}
+                    {/*        <span className="flex items-center gap-2 font-Yekan-Medium text-base">*/}
+                    {/*            <SortIcon className="w-5 h-5"/> مرتب سازی*/}
+                    {/*        </span>*/}
+                    {/*    </div>*/}
+                    {/*    <SortSection/>*/}
+                    {/*    <span className="hidden xl:block font-Yekan-Medium text-sm text-[#404040]">*/}
+                    {/*        {filterProduct.length} محصول موجود است*/}
+                    {/*    </span>*/}
+                    {/*</div>*/}
 
-                    <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                    {
+                        loading && <SectionTitle title={allProduct[0]?.category.displayName}/>
+                    }
+                    <div className={`grid gap-4 sm:gap-6 grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4`}>
 
                         {
-                            paginatedProducts.length > 0
+                            loading ?
+                                (paginatedProducts.length > 0
                                 ? paginatedProducts.map((product) => (
                                     <motion.div
                                         key={product.id}
@@ -76,9 +85,9 @@ function CategoryWrapper(props) {
                                         <OfferCard products={product}/>
                                     </motion.div>
                                 ))
-                                : Array(8)
-                                    .fill(null)
-                                    .map((_, i) => <SkeletonCard key={i}/>)
+                                : <EmptyProductsMessage
+                                    message={"محصولی برای این دسته بندی یافت نشد "}/>) : Array(4).fill(0).map((_, id) =>
+                                <SkeletonCard key={id}/>)
                         }
 
 

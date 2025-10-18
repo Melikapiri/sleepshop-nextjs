@@ -4,7 +4,7 @@ function MobileMenu() {
     return (
         <ul className="sm:hidden  flex flex-col gap-4 sm:gap-6 lg:gap-9 pt-4 border-t border-r-white ">
             <li className="  text-base text-secondPrimaryColor  ">
-                <a href="/project/public">صفحه اصلی </a>
+                <a href="/">صفحه اصلی </a>
             </li>
             <li className="  text-base text-secondPrimaryColor">
                 <a href="#">روتختی ها </a>
