@@ -45,7 +45,7 @@ function ProductWrapper() {
     return (
         <>
             <div className="flex items-start flex-col lg:flex-row container xl:max-w-[94.52%] mx-auto gap-4 lg:gap-6">
-                <FilterSideBarProduct products={} categories={allCategories}/>
+                <FilterSideBarProduct  categories={allCategories}/>
 
                 <section className="flex flex-col w-full gap-4 lg:gap-6">
                     <div

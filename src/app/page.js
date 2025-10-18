@@ -24,7 +24,6 @@ export default async function Home() {
         <div className="backgroundImage">
             <Header/>
             <main>
-                <EmptyProductsMessage/>
                 <HomeSection/>
                 <CategorySection data={categories}/>
                 <SpecialOffers products={products}/>
