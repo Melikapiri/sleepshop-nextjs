@@ -1,6 +1,6 @@
 import connectToDB from "@/configs/db";
 import CommentModel from "@/models/Comment";
-import { authAdmin } from "@/utils/serverHelpers";
+import { authAdmin } from "@/Utils/serverHelpers";
 
 export async function PUT(req) {
   try {

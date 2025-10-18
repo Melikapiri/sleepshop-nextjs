@@ -1,5 +1,5 @@
 import connectToDB from "@/configs/db";
-import { verifyAccessToken } from "@/src/utils/AuthClient";
+import { verifyAccessToken } from "@/src/Utils/AuthClient";
 import { cookies } from "next/headers";
 import UserModel from "@/models/User";
 

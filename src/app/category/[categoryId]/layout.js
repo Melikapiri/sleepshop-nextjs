@@ -4,7 +4,7 @@ import {FilterProductProvider} from "@/src/Context/FilterProductContext";
 
 export const metadata = {
     title: 'آرامیس - محصولات ',
-    description: 'محصولات ',
+    description: 'دسته بندی محصولات',
     icons: {
         icon: '/logo.png',
     }

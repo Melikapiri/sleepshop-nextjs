@@ -1,9 +1,9 @@
 "use client"
 import {useState} from "react";
-import LoginPageIcon from "@/src/components/Icons/LoginPageIcon";
-import SectionTitle from "@/src/components/modules/SectionTitle/SectionTitle";
+import LoginPageIcon from "@/src/Components/Icons/LoginPageIcon";
+import SectionTitle from "@/src/Components/Modules/Ui/SectionTitle/SectionTitle";
 import {useRouter} from "next/navigation";
-import {validateEmail, validatePassword} from "@/src/utils/validatePattern";
+import {validateEmail, validatePassword} from "@/src/Utils/validatePattern";
 import {toast} from "react-toastify";
 
 function Page(props) {

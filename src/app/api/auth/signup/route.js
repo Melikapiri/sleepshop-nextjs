@@ -1,9 +1,9 @@
 // src/app/api/register/route.js
 import connectToDB from "@/configs/db";
 import UserModel from "@/models/User";
-import { generateAccessToken, hashPassword } from "@/src/utils/AuthClient";
-import { roles } from "@/src/utils/constants";
-import { validateEmail, validatePassword } from "@/src/utils/validatePattern";
+import { generateAccessToken, hashPassword } from "@/src/Utils/AuthClient";
+import { roles } from "@/src/Utils/constants";
+import { validateEmail, validatePassword } from "@/src/Utils/validatePattern";
 
 export async function POST(req) {
     try {

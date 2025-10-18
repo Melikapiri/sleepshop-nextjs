@@ -1,7 +1,7 @@
 import './globals.css';
 import {MenuProvider} from "@/src/Context/AppContext";
-import OpacityCover from "@/src/components/modules/OpacityCover/OpacityCover";
-import AOSInit from "@/src/utils/AOS";
+import OpacityCover from "@/src/Components/Modules/Shared/OpacityCover/OpacityCover";
+import AOSInit from "@/src/Utils/AOS";
 import { ToastContainer, Slide } from 'react-toastify';
 
 export const metadata = {

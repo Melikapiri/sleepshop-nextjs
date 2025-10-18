@@ -1,5 +1,5 @@
 import React, from 'react';
-import ProductWrapper from "@/src/components/Templates/Products/ProductWrapper";
+import ProductWrapper from "@/src/Components/Templates/Products/ProductWrapper";
 
 async function Page(props) {
 

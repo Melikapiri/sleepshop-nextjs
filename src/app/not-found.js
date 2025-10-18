@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from "@/src/components/modules/Header/Header";
-import Footer from "@/src/components/modules/Footer/Footer";
+import Header from "@/src/Components/Modules/Shared/Header/Header";
+import Footer from "@/src/Components/Modules/Shared/Footer/Footer";
 
 function NotFound(props) {
     return (
