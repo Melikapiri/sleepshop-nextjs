@@ -5,12 +5,9 @@ function Page(props) {
 
     return (
         <div>
-
             <div className="  my-10 ">
                 <CategoryWrapper/>
             </div>
-
-
         </div>
     );
 }
