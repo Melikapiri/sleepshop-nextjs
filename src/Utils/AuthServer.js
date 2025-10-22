@@ -10,12 +10,12 @@ export const authUser = async () => {
 
         const cookieStore = await cookies();
         const token = cookieStore.get("token");
-        console.log("Token:", token);
+        // console.log("Token:", token);
         let user = null;
 
         if (token) {
             const tokenPayload = verifyAccessToken(token.value);
-            console.log("Token Payload:", tokenPayload);
+            // console.log("Token Payload:", tokenPayload);
             if (tokenPayload) {
                 user = await UserModel.findOne({ email: tokenPayload.email });
             }

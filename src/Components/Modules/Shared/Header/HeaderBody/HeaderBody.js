@@ -1,5 +1,5 @@
 "use client"
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Search from "@/src/Components/Icons/Search";
 import User from "@/src/Components/Icons/User";
 import Bag from "@/src/Components/Icons/Bag";
@@ -14,6 +14,19 @@ import Signin from "@/src/Components/Icons/SignIn";
 
 function HeaderBody({isLogin, username}) {
     const {isMenuOpen, toggleMenu, setIsMenuOpen} = useMenu()
+    const [menuItem, setMenuItem] = useState([])
+    useEffect(() => {
+        const getCategoryData = async () => {
+            const res = await fetch(`/api/categories`)
+            const category = await res.json()
+            setMenuItem(category.data.slice(0, 3))
+        }
+        getCategoryData()
+    }, []);
+
+    useEffect(() => {
+        console.log("menuItem", menuItem)
+    }, [menuItem]);
     return (
         <div className="flex justify-between items-center mx-auto mt-3 lg:mt-6 ">
             {/* Open menu Btn*/}
@@ -48,7 +61,7 @@ function HeaderBody({isLogin, username}) {
                 }
 
 
-                <MobileMenu/>
+                <MobileMenu data={menuItem} />
             </div>
             {/*Logo  desktop*/}
             <div>
@@ -61,7 +74,7 @@ function HeaderBody({isLogin, username}) {
                 </div>
             </div>
             {/*Menu*/}
-            <DesktopMenu/>
+            <DesktopMenu data={menuItem}/>
             {/* Header icons*/}
             <div className="flex items-center sm:gap-3.5">
                 <a href="">

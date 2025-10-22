@@ -11,10 +11,6 @@ import SortSection from "@/src/Components/Templates/Products/SortSection";
 import {motion} from "framer-motion";
 
 function ProductWrapper() {
-    const pathname = usePathname().split("/")
-    const havingCategories = pathname.includes("category")
-    console.log("havingCategories=>? ", havingCategories)
-    console.log("pathname =>>>>>>> ", pathname[pathname.length - 1])
     const {
         allProduct,              // Filtered list
         paginatedProducts,       // Paginated list
@@ -35,13 +31,7 @@ function ProductWrapper() {
         getCategories();
     }, []);
 
-    // useEffect(() => {
-    //     if (havingCategories) {
-    //         setAllProduct(originalProducts.filter(product => product.category.name === pathname[pathname.length - 1]))
-    //     }
-    // }, [originalProducts]);
 
-    console.log("filter result =>>>>>",)
     return (
         <>
             <div className="flex items-start flex-col lg:flex-row container xl:max-w-[94.52%] mx-auto gap-4 lg:gap-6">

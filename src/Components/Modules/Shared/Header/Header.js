@@ -8,6 +8,7 @@ import {authUser} from "@/src/Utils/AuthServer";
 async function Header(props) {
     await connectToDB()
     const user = await authUser();
+
     return (
         <header className="header  md:mt-4">
             {/*  top header  */}

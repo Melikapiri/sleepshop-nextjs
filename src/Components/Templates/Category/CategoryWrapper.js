@@ -12,11 +12,9 @@ import PaginationComponent from "@/src/Components/Modules/Features/PaginationCom
 import Search from "@/src/Components/Icons/Search";
 import SectionTitle from "@/src/Components/Modules/Ui/SectionTitle/SectionTitle";
 import EmptyProductsMessage from "@/src/Components/Modules/Ui/EmptyProductsMessage/EmptyProductsMessage";
-import {array} from "yup";
 
 function CategoryWrapper(props) {
     const [pathname, setPathname] = useState(usePathname().split("/"))
-    const havingCategories = pathname.includes("category")
     const [filterProduct, setFilterProduct] = useState([])
 
 
@@ -24,27 +22,42 @@ function CategoryWrapper(props) {
         allProduct,              // Filtered list
         paginatedProducts,       // Paginated list
         setPaginatedProducts,
-        setAllProduct,
-        originalProducts,
         loading,
     } = useFilterProduct();
 
-    const [allCategories, setCategories] = useState([]);
+    const [category, setCategory] = useState([]);
+    const [categoryName, setCategoryName] = useState([]);
 
-
-    const filterProductHandler = () => {
-        const filtered = allProduct.filter(product => product.category.name === pathname[pathname.length - 1]);
-        setFilterProduct(filtered);
+    const findCategoryName = async () => {
+        const res = await fetch(`/api/categories`)
+        const data = await res.json()
+        console.log(data)
+        setCategory(data)
     }
 
-    useEffect(() => {
 
+    useEffect(() => {
+        console.log(category)
+        setCategoryName(category.data?.find(item => item.name === pathname[pathname.length - 1]).displayName)
+    }, [category]);
+
+    useEffect(() => {
+        console.log("categoryName => ", categoryName)
+    }, [categoryName]);
+    const filterProductHandler = async () => {
+        const filtered = allProduct.filter(product => product.category.name === pathname[pathname.length - 1]);
+        setFilterProduct(filtered);
+
+    }
+
+
+    useEffect(() => {
+        findCategoryName()
         filterProductHandler()
     }, [pathname]);
-    //
+
     useEffect(() => {
         filterProductHandler()
-        console.log(allProduct)
     }, [allProduct]);
 
 
@@ -54,7 +67,7 @@ function CategoryWrapper(props) {
 
                 <section className="flex flex-col w-full gap-4 lg:gap-6">
                     {
-                        loading && <SectionTitle title={allProduct[0]?.category.displayName}/>
+                        loading && <SectionTitle title={categoryName}/>
                     }
                     <div
                         className={`grid gap-4 sm:gap-6 grid-cols-1${!loading && `sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4`} ${paginatedProducts.length === 0 ? `grid-cols-1` : `sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4`}  `}>

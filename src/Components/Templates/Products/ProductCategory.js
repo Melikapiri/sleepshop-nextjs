@@ -6,7 +6,6 @@ import {useFilterProduct} from "@/src/Context/FilterProductContext";
 function ProductCategory({categories}) {
     const [selectedCategories, setSelectedCategories] = useState([]);
     const {setAllProduct, allProduct, originalProducts} = useFilterProduct();
-    console.log(allProduct)
     const handleCheckboxChange = (category) => {
         setSelectedCategories(prev =>
             prev.includes(category)
