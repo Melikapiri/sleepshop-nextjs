@@ -1,9 +1,9 @@
 "use client";
-import React, { createContext, useState, useEffect, useContext, useMemo } from "react";
+import React, {createContext, useState, useEffect, useContext, useMemo} from "react";
 
 const FilterProduct = createContext();
 
-export function FilterProductProvider({ children }) {
+export function FilterProductProvider({children}) {
     const [originalProducts, setOriginalProducts] = useState([]);
     const [allProduct, setAllProduct] = useState([]);
     const [paginatedProducts, setPaginatedProducts] = useState([]);

@@ -1,8 +1,8 @@
 import React from 'react';
-import ServiceItem from "@/src/components/Templates/Index/ServiceHighlights/ServiceItem";
-import Wallet from "@/src/components/Icons/Wallet";
-import Smile from "@/src/components/Icons/Smile";
-import Support from "@/src/components/Icons/Support";
+import ServiceItem from "@/src/Components/Templates/Index/ServiceHighlights/ServiceItem";
+import Wallet from "@/src/Components/Icons/Wallet";
+import Smile from "@/src/Components/Icons/Smile";
+import Support from "@/src/Components/Icons/Support";
 
 function ServiceHighlights(props) {
     return (

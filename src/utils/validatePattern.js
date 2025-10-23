@@ -4,12 +4,12 @@ const validateEmail = (email) => {
 };
 
 const validatePhone = (phone) => {
-    const pattern = /^09\d{9}$/;
+    const pattern = /^09\d{9}$/g;
     return pattern.test(phone);
 };
 
 const validatePassword = (password) => {
-    const pattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    const pattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/g;
     return pattern.test(password);
 };
 

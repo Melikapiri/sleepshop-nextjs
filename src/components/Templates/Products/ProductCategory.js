@@ -1,12 +1,11 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import ToggleSection from "@/src/components/modules/ToggleSection/ToggleSection";
-import { useFilterProduct } from "@/src/Context/FilterProductContext";
+import React, {useEffect, useState} from "react";
+import ToggleSection from "@/src/Components/Modules/Features/ToggleSection/ToggleSection";
+import {useFilterProduct} from "@/src/Context/FilterProductContext";
 
-function ProductCategory({ categories }) {
+function ProductCategory({categories}) {
     const [selectedCategories, setSelectedCategories] = useState([]);
-    const { setAllProduct,allProduct, originalProducts } = useFilterProduct();
-    console.log(allProduct)
+    const {setAllProduct, allProduct, originalProducts} = useFilterProduct();
     const handleCheckboxChange = (category) => {
         setSelectedCategories(prev =>
             prev.includes(category)

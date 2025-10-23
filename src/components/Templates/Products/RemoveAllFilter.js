@@ -1,6 +1,6 @@
 import React from 'react';
-import FilterIcon from "@/src/components/Icons/FilterIcon";
-import XMark from "@/src/components/Icons/X-mark";
+import FilterIcon from "@/src/Components/Icons/FilterIcon";
+import XMark from "@/src/Components/Icons/X-mark";
 import {useFilterProduct} from "@/src/Context/FilterProductContext";
 
 function RemoveAllFilter(props) {

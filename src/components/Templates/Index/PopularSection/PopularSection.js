@@ -1,8 +1,8 @@
 import React from 'react';
-import Crown from "@/src/components/Icons/Crown";
-import SectionTitle from "@/src/components/modules/SectionTitle/SectionTitle";
-import PopularCategories from "@/src/components/Templates/Index/PopularSection/PopularCategories/PopularCategories";
-import PopularCard from "@/src/components/modules/PopularCard/PopularCard";
+import Crown from "@/src/Components/Icons/Crown";
+import SectionTitle from "@/src/Components/Modules/Ui/SectionTitle/SectionTitle";
+import PopularCategories from "@/src/Components/Templates/Index/PopularSection/PopularCategories/PopularCategories";
+import PopularCard from "@/src/Components/Modules/Ui/PopularCard/PopularCard";
 
 function PopularSection(props) {
     return (

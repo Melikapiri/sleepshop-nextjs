@@ -1,8 +1,8 @@
 import React from 'react';
-import ChevronLeft from "@/src/components/Icons/ChevronLeft";
-import HomeSlider from "@/src/components/Templates/Index/HomeSection/HomeSlider";
-import ArrowLeft from "@/src/components/Icons/ArrowLeft";
-import Ellipse from "@/src/components/Icons/Ellipse";
+import ChevronLeft from "@/src/Components/Icons/ChevronLeft";
+import HomeSlider from "@/src/Components/Templates/Index/HomeSection/HomeSlider";
+import ArrowLeft from "@/src/Components/Icons/ArrowLeft";
+import Ellipse from "@/src/Components/Icons/Ellipse";
 
 function HomeSection(props) {
     return (
@@ -23,7 +23,7 @@ function HomeSection(props) {
                     خواب وارداتی از کشور های معتبر در سراسر جهان</p>
                 <div className=" flex items-center justify-center mt-6 xs:mt-8">
                     <a className=" inline-flex items-center py-2 px-3 mx-auto bg-lightBlue text-white rounded-lg gap-2 font-Yekan-Medium text-base"
-                       href="/allProduct">مشاهده محصولات
+                       href="/products">مشاهده محصولات
                         <ChevronLeft className="w-4 h-4"/>
                     </a>
                 </div>

@@ -5,10 +5,10 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
-import MoreGridBig from "@/src/components/Icons/MoreGridBig";
-import Truk from "@/src/components/Icons/Truk";
-import HeadPhone from "@/src/components/Icons/HeadPhone";
-import HomeSliderItem from "@/src/components/Templates/Index/HomeSection/HomeSliderItem";
+import MoreGridBig from "@/src/Components/Icons/MoreGridBig";
+import Truk from "@/src/Components/Icons/Truk";
+import HeadPhone from "@/src/Components/Icons/HeadPhone";
+import HomeSliderItem from "@/src/Components/Templates/Index/HomeSection/HomeSliderItem";
 
 function HomeSlider() {
     return (

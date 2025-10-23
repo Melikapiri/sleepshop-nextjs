@@ -28,10 +28,10 @@ export async function POST(req) {
             );
         }
 
-        // اعتبارسنجی category
+        // اعتبارسنجی Category
         if (!mongoose.Types.ObjectId.isValid(category)) {
             return Response.json(
-                { message: "Invalid category ID" },
+                { message: "Invalid Category ID" },
                 { status: 400 }
             );
         }

@@ -3,11 +3,11 @@ import React, {useState} from "react";
 import {useFilterProduct} from "@/src/Context/FilterProductContext";
 
 function SortSection() {
-    const {setAllProduct, originalProducts} = useFilterProduct();
+    const {setAllProduct, originalProducts,allProduct} = useFilterProduct();
     const [activeSort, setActiveSort] = useState("جدیدترین");
 
     const handleSort = (type) => {
-        let sorted = [...originalProducts];
+        let sorted = [...allProduct];
 
         switch (type) {
             case "جدیدترین":

@@ -1,6 +1,6 @@
 import React from 'react';
-import SectionTitle from "@/src/components/modules/SectionTitle/SectionTitle";
-import ArticleItem from "@/src/components/Templates/Index/ArticleSection/ArticleItem";
+import SectionTitle from "@/src/Components/Modules/Ui/SectionTitle/SectionTitle";
+import ArticleItem from "@/src/Components/Templates/Index/ArticleSection/ArticleItem";
 
 function ArticleSection(props) {
     return (

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useFilterProduct} from "@/src/Context/FilterProductContext";
 
-function ProductInventory() {
+function  ProductInventory() {
     const {allProduct, setAllProduct, originalProducts} = useFilterProduct();
     const [selected, setSelect] = useState(false)
 

@@ -2,8 +2,8 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import SectionTitle from "@/src/components/modules/SectionTitle/SectionTitle";
-import RegisterIcon from "@/src/components/Icons/RegisterIcon";
+import SectionTitle from "@/src/Components/Modules/Ui/SectionTitle/SectionTitle";
+import RegisterIcon from "@/src/Components/Icons/RegisterIcon";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 

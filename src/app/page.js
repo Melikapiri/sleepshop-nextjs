@@ -1,16 +1,17 @@
 import connectToDB from "@/configs/db";
-import HomeSection from "@/src/components/Templates/Index/HomeSection/HomeSection";
-import CategorySection from "@/src/components/Templates/Index/CategorySection/CategorySection";
-import SpecialOffers from "@/src/components/Templates/Index/SpecialOffers/SpecialOffers";
-import Banner from "@/src/components/Templates/Index/Banner/Banner";
-import PopularSection from "@/src/components/Templates/Index/PopularSection/PopularSection";
-import FollowUs from "@/src/components/Templates/Index/FollowUs/FollowUs";
-import ServiceHighlights from "@/src/components/Templates/Index/ServiceHighlights/ServiceHighlights";
-import ArticleSection from "@/src/components/Templates/Index/ArticleSection/ArticleSection";
-import Header from "@/src/components/modules/Header/Header";
-import Footer from "@/src/components/modules/Footer/Footer";
+import HomeSection from "@/src/Components/Templates/Index/HomeSection/HomeSection";
+import CategorySection from "@/src/Components/Templates/Index/CategorySection/CategorySection";
+import SpecialOffers from "@/src/Components/Templates/Index/SpecialOffers/SpecialOffers";
+import Banner from "@/src/Components/Templates/Index/Banner/Banner";
+import PopularSection from "@/src/Components/Templates/Index/PopularSection/PopularSection";
+import FollowUs from "@/src/Components/Templates/Index/FollowUs/FollowUs";
+import ServiceHighlights from "@/src/Components/Templates/Index/ServiceHighlights/ServiceHighlights";
+import ArticleSection from "@/src/Components/Templates/Index/ArticleSection/ArticleSection";
+import Header from "@/src/Components/Modules/Shared/Header/Header";
+import Footer from "@/src/Components/Modules/Shared/Footer/Footer";
 import Category from "@/models/Category";
 import Product from "@/models/Product"
+import EmptyProductsMessage from "@/src/Components/Modules/Ui/EmptyProductsMessage/EmptyProductsMessage";
 
 export default async function Home() {
     await connectToDB()

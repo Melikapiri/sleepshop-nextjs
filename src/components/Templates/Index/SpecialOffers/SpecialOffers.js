@@ -1,6 +1,6 @@
 import React from 'react';
-import Timer from "@/src/components/Templates/Index/SpecialOffers/Timer";
-import OfferCard from "@/src/components/modules/OfferCard/OfferCard";
+import Timer from "@/src/Components/Templates/Index/SpecialOffers/Timer";
+import OfferCard from "@/src/Components/Modules/Ui/OfferCard/OfferCard";
 
 function SpecialOffers({products}) {
     console.log("produxct server ", products)

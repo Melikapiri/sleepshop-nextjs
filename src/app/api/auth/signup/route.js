@@ -1,9 +1,9 @@
 // src/app/api/register/route.js
 import connectToDB from "@/configs/db";
 import UserModel from "@/models/User";
-import { generateAccessToken, hashPassword } from "@/src/utils/AuthClient";
-import { roles } from "@/src/utils/constants";
-import { validateEmail, validatePassword } from "@/src/utils/validatePattern";
+import { generateAccessToken, hashPassword } from "@/src/Utils/AuthClient";
+import { roles } from "@/src/Utils/constants";
+import { validateEmail, validatePassword } from "@/src/Utils/validatePattern";
 
 export async function POST(req) {
     try {
@@ -12,12 +12,12 @@ export async function POST(req) {
         const { name, phone, email, password } = body;
 
         // Validation
-        if (!validateEmail(email) || !validatePassword(password)) {
-            return Response.json(
-                { message: "Email or password is invalid" },
-                { status: 419 }
-            );
-        }
+        // if (!validateEmail(email) || !validatePassword(password)) {
+        //     return Response.json(
+        //         { message: "Email or password is invalid" },
+        //         { status: 419 }
+        //     );
+        // }
 
         const isUserExist = await UserModel.findOne({
             $or: [{ name }, { email }, { phone }],
@@ -31,7 +31,7 @@ export async function POST(req) {
         }
 
         const hashedPassword = await hashPassword(password);
-        const accessToken = generateAccessToken({ email }); // تغییر از name به email
+        const accessToken = generateAccessToken({ email });
 
         const users = await UserModel.find({});
 

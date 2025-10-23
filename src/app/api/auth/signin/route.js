@@ -1,9 +1,9 @@
 import connectToDB from "@/configs/db"
 import UserModel from "@/models/User";
 
-import {generateAccessToken, generateRefreshToken, verifyPassword,} from "@/src/utils/AuthClient";
-import {validatePassword} from "@/src/utils/validatePattern";
-import {validateEmail} from "@/src/utils/validatePattern";
+import {generateAccessToken, generateRefreshToken, verifyPassword,} from "@/src/Utils/AuthClient";
+import {validatePassword} from "@/src/Utils/validatePattern";
+import {validateEmail} from "@/src/Utils/validatePattern";
 
 export async function POST(req) {
     try {

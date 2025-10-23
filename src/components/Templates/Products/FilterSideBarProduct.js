@@ -1,7 +1,7 @@
 import React from 'react';
 
-import ToggleSection from "@/src/components/modules/ToggleSection/ToggleSection";
-import FilteringProductWrapper from "@/src/components/Templates/Products/FilteringProductWrapper";
+import ToggleSection from "@/src/Components/Modules/Features/ToggleSection/ToggleSection";
+import FilteringProductWrapper from "@/src/Components/Templates/Products/FilteringProductWrapper";
 
 function FilterSideBarProduct({categories}) {
     return (

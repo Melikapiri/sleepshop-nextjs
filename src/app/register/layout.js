@@ -1,4 +1,4 @@
-import Footer from "@/src/components/modules/Footer/Footer";
+import Footer from "@/src/Components/Modules/Shared/Footer/Footer";
 
 export const metadata = {
     title: 'آرامیس - ثبت نام ',

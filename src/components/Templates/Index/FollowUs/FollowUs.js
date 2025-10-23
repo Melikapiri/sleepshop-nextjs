@@ -1,5 +1,5 @@
 import React from 'react';
-import Instagram from "@/src/components/Icons/Instagram";
+import Instagram from "@/src/Components/Icons/Instagram";
 
 function FollowUs(props) {
     return (

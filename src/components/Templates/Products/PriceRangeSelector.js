@@ -1,12 +1,12 @@
 "use client";
 import React, {useState} from "react";
-import ToggleSection from "@/src/components/modules/ToggleSection/ToggleSection";
+import ToggleSection from "@/src/Components/Modules/Features/ToggleSection/ToggleSection";
 import {useFilterProduct} from "@/src/Context/FilterProductContext";
-import Search from "@/src/components/Icons/Search";
+import Search from "@/src/Components/Icons/Search";
 import {NumericFormat} from "react-number-format";
 
 function PriceRangeSelector() {
-    const {setAllProduct, originalProducts} = useFilterProduct();
+    const {setAllProduct, originalProducts,allProduct} = useFilterProduct();
 
     const [minPrice, setMinPrice] = useState(null);
     const [maxPrice, setMaxPrice] = useState(null);
@@ -17,7 +17,7 @@ function PriceRangeSelector() {
             return;
         }
 
-        const resultFilterProduct = originalProducts.filter(
+        const resultFilterProduct = [...allProduct].filter(
             (product) =>
                 product.finalPrice >= (minPrice ?? 0) &&
                 product.finalPrice <= (maxPrice ?? Infinity)
