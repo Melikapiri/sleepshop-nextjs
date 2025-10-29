@@ -106,7 +106,6 @@ function Page(props) {
                             ورود
                         </button>
 
-                        {/* هاله‌های نور خیلی لطیف برای عمق */}
                         <div
                             className="pointer-events-none absolute -top-10 -right-10 h-40 w-40 rounded-full bg-white/20 blur-3xl"/>
                         <div

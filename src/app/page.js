@@ -11,12 +11,11 @@ import Header from "@/src/Components/Modules/Shared/Header/Header";
 import Footer from "@/src/Components/Modules/Shared/Footer/Footer";
 import Category from "@/models/Category";
 import Product from "@/models/Product"
-import EmptyProductsMessage from "@/src/Components/Modules/Ui/EmptyProductsMessage/EmptyProductsMessage";
 
 export default async function Home() {
     await connectToDB()
     const categories = await Category.find({}).select('-__v');
-    const products = await Product.find({}).select('-__v');
+    const products = await Product.find({}).select('-__v')
 
 
     return (
@@ -28,7 +27,7 @@ export default async function Home() {
                 <CategorySection data={categories}/>
                 <SpecialOffers products={products}/>
                 <Banner/>
-                <PopularSection/>
+                <PopularSection  products={JSON.parse(JSON.stringify(products))}/>
                 <FollowUs/>
                 <ServiceHighlights/>
                 <ArticleSection/>

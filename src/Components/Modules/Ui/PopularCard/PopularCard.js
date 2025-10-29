@@ -1,13 +1,16 @@
 import React from 'react';
+import Image from 'next/image'
 
-function PopularCard(props) {
+function PopularCard({title,price,image}) {
     return (
-        <div className="flex gap-3 sm:gap-0 sm:block bg-lightGray2 p-3.5 rounded-xl h-[118px] sm:h-auto">
-            <div className="w-32 sm:w-auto">
-                <img
+        <div className="flex sm:flex-col sm:justify-between gap-3 sm:gap-0 sm:block bg-lightGray2 p-3.5 rounded-xl h-[118px] sm:h-auto">
+            <div className="w-32 sm:h-52 lg:h-40 xl:h-[218px] sm:w-auto">
+                <Image
+                    width={700}
+                    height={700}
                     className="block w-full h-full object-cover rounded-lg"
-                    src="/images/balesh/b1.png"
-                    alt="balesh 1"
+                    src={image}
+                    alt={title}
                 />
 
             </div>
@@ -16,19 +19,17 @@ function PopularCard(props) {
                 className="hidden sm:block text-sm font-Yekan-Medium mb-3 mt-4 line-clamp-1	"
             >
                 {" "}
-                بالشت طبی آنتی استرس Ivora
-            </a>
+                {title}            </a>
             <div className=" bg-white rounded-lg  p-2 w-full">
                 <a
                     href="#"
                     className=" line-clamp-1 sm:hidden text-sm font-Yekan-Medium mb-4 "
                 >
                     {" "}
-                    بالشت طبی آنتی استرس Ivora
-                </a>
+                    {title}                 </a>
                 <div className="flex items-end justify-between">
                     <div className="flex items-center gap-2">
-                        <p className="text-sm sm:text-base">15.900.000</p>
+                        <p className="text-sm sm:text-base">{price.toLocaleString()}</p>
                         <p className="text-lightBlue font-Yekan-Regula text-[10px]/normal">
                             تومان
                         </p>
