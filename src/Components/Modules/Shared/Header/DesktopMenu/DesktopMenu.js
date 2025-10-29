@@ -10,19 +10,11 @@ function DesktopMenu({data}) {
             {
                 data?.map(item => (
                     <li key={item._id} className="text-base text-lightGray">
-                        <a href={`/category/${item.name}`}>{item.displayName}  </a>
+                        <a href={`/category/${item.name}`}>  {item.displayName}  </a>
                     </li>
                 ))
             }
-            {/*<li className="text-base text-lightGray">*/}
-            {/*    <a href="#">روتختی ها </a>*/}
-            {/*</li>*/}
-            {/*<li className="text-base text-lightGray">*/}
-            {/*    <a href="#">بالش ها </a>*/}
-            {/*</li>*/}
-            {/*<li className="text-base text-lightGray">*/}
-            {/*    <a href="#">تشک ها </a>*/}
-            {/*</li>*/}
+
             <li className="text-base text-lightGray">
                 <a href="#">درباره ما </a>
             </li>
