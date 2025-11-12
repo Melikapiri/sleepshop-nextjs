@@ -5,6 +5,7 @@ import SectionTitle from "@/src/Components/Modules/Ui/SectionTitle/SectionTitle"
 import {useRouter} from "next/navigation";
 import {validateEmail, validatePassword} from "@/src/Utils/validatePattern";
 import {toast} from "react-toastify";
+import Breadcrumb from "@/src/Components/Modules/Ui/Breadcrumb/Breadcrumb";
 
 function Page(props) {
     const route = useRouter()
@@ -57,8 +58,12 @@ function Page(props) {
             <div className="flex flex-col	justify-center items-center">
                 <SectionTitle title="صفحه ورود"/>
             </div>
-            <div className="container">
 
+            <div className="container">
+<Breadcrumb items={[
+    {name:'صفحه اصلی',href:'/'},
+    {name:'صفحه ورود'},
+]}/>
                 <div
                     className="gradiant  shadow shadow-primaryColor overflow-hidden flex items-center justify-center md:gap-6 p-6 xs:py-10 md:p-12  rounded-3xl mx-auto   mb-10">
                     <LoginPageIcon className="hidden sm:block w-auto h-80 md:h-96"/>

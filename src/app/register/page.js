@@ -6,6 +6,7 @@ import SectionTitle from "@/src/Components/Modules/Ui/SectionTitle/SectionTitle"
 import RegisterIcon from "@/src/Components/Icons/RegisterIcon";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import Breadcrumb from "@/src/Components/Modules/Ui/Breadcrumb/Breadcrumb";
 
 const validationSchema = Yup.object().shape({
     username: Yup.string()
@@ -75,6 +76,10 @@ function Page() {
             </div>
 
             <div className="container">
+                <Breadcrumb items={[
+                    {name:'صفحه اصلی',href:'/'},
+                    {name:'صفحه ثبت نام'},
+                ]}/>
                 <div className="gradiant shadow shadow-primaryColor overflow-hidden flex items-center justify-center md:gap-6 p-6 xs:py-10 md:p-12 rounded-3xl mx-auto mb-10">
                     <RegisterIcon className="hidden md:block w-auto h-80 md:max-h-[30rem] md:h-auto" />
 
