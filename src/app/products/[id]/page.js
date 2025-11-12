@@ -1,9 +1,11 @@
-import React from 'react';
+// page.js
+import ProductDetail from "@/src/Components/Templates/Product/ProductDetail/ProductDetail";
 
-function Page(props) {
-    return (
-        <div></div>
-    );
+export default async function ProductPage({params}) {
+    const {id} = params;
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products/${id}`);
+    const product = await res.json();
+
+    return <ProductDetail product={product}/>;
 }
-
-export default Page;

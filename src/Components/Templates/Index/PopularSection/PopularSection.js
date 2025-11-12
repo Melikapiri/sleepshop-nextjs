@@ -41,7 +41,7 @@ function PopularSection({products}) {
                             <motion.div initial={{opacity: 0, y: 10}}
                                         animate={{opacity: 1, y: 0}}
                                         transition={{ease: "easeOut", duration: 0.3}} key={product._id}>
-                                <PopularCard title={product.title} price={product.price}
+                                <PopularCard id={product._id} title={product.title} price={product.price}
                                              image={product.img}/>
                             </motion.div>
                         ))

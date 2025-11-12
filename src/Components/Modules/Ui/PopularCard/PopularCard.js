@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image'
-
-function PopularCard({title,price,image}) {
+import Link from "next/link";
+function PopularCard({title,price,image,id}) {
     return (
         <div className="flex sm:flex-col sm:justify-between gap-3 sm:gap-0 sm:block bg-lightGray2 p-3.5 rounded-xl h-[118px] sm:h-auto">
             <div className="w-32 sm:h-52 lg:h-40 xl:h-[218px] sm:w-auto">
@@ -14,19 +14,19 @@ function PopularCard({title,price,image}) {
                 />
 
             </div>
-            <a
-                href="#"
+            <Link
+                href={`/products/${id}`}
                 className="hidden sm:block text-sm font-Yekan-Medium mb-3 mt-4 line-clamp-1	"
             >
                 {" "}
-                {title}            </a>
+                {title}            </Link>
             <div className=" bg-white rounded-lg  p-2 w-full">
-                <a
-                    href="#"
+                <Link
+                    href={`/products/${id}`}
                     className=" line-clamp-1 sm:hidden text-sm font-Yekan-Medium mb-4 "
                 >
                     {" "}
-                    {title}                 </a>
+                    {title}                 </Link>
                 <div className="flex items-end justify-between">
                     <div className="flex items-center gap-2">
                         <p className="text-sm sm:text-base">{price.toLocaleString()}</p>

@@ -2,6 +2,7 @@ import React from 'react';
 import Sparkles from "@/src/Components/Icons/Sparkles";
 import Image from 'next/image'
 import SkeletonCard from "@/src/Components/Modules/Ui/SkeletonCard/SkeletonCard";
+import Link from "next/link";
 
 function OfferCard({products}) {
     return products ? (
@@ -16,20 +17,21 @@ function OfferCard({products}) {
                 />
             </div>
 
-            <a
-                href="#"
+            <Link
+                href={`/products/${products._id}`}
                 className="hidden sm:block text-sm font-Yekan-Medium mb-3 mt-4 line-clamp-1"
             >
                 {products.title}
-            </a>
+            </Link>
+
 
             <div className="bg-white rounded-lg p-2 w-full">
-                <a
-                    href="#"
+                <Link
+                    href={`/products/${products._id}`}
                     className="line-clamp-1 sm:hidden text-sm font-Yekan-Medium mb-4"
                 >
                     {products.title}
-                </a>
+                </Link>
 
                 <div className="flex items-center justify-between h-12">
                     <div>
