@@ -12,6 +12,7 @@ import PaginationComponent from "@/src/Components/Modules/Features/PaginationCom
 import Search from "@/src/Components/Icons/Search";
 import SectionTitle from "@/src/Components/Modules/Ui/SectionTitle/SectionTitle";
 import EmptyProductsMessage from "@/src/Components/Modules/Ui/EmptyProductsMessage/EmptyProductsMessage";
+import Breadcrumb from "@/src/Components/Modules/Ui/Breadcrumb/Breadcrumb";
 
 function CategoryWrapper(props) {
     const [pathname, setPathname] = useState(usePathname().split("/"))
@@ -63,12 +64,16 @@ function CategoryWrapper(props) {
 
     return (
         <>
-            <div className="flex items-start flex-col lg:flex-row container xl:max-w-[94.52%] mx-auto gap-4 lg:gap-6">
+            <div className="flex items-start flex-col lg:flex-row container xl:max-w-[94.52%] mx-auto gap-4">
 
-                <section className="flex flex-col w-full gap-4 lg:gap-6">
+                <section className="flex flex-col w-full">
+
                     {
                         loading && <SectionTitle title={categoryName}/>
                     }
+                    <Breadcrumb items={[{name: "صفحه اصلی", href: "/"},
+                        { name: "دسته‌بندی" ,href: '/products'},
+                        {name: categoryName}]}/>
                     <div
                         className={`grid gap-4 sm:gap-6 grid-cols-1${!loading && `sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4`} ${paginatedProducts.length === 0 ? `grid-cols-1` : `sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4`}  `}>
 

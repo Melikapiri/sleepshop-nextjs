@@ -9,6 +9,7 @@ import PaginationComponent from "@/src/Components/Modules/Features/PaginationCom
 import {useFilterProduct} from "@/src/Context/FilterProductContext";
 import SortSection from "@/src/Components/Templates/Products/SortSection";
 import {motion} from "framer-motion";
+import Breadcrumb from "@/src/Components/Modules/Ui/Breadcrumb/Breadcrumb";
 
 function ProductWrapper() {
     const {
@@ -31,12 +32,16 @@ function ProductWrapper() {
         getCategories();
     }, []);
 
-
+    const breadcrumbItems = [
+        { name: "صفحه اصلی", href: "/" },
+        { name: "دسته‌بندی" },
+    ];
     return (
-        <>
-            <div className="flex items-start flex-col lg:flex-row container xl:max-w-[94.52%] mx-auto gap-4 lg:gap-6">
-                <FilterSideBarProduct  categories={allCategories}/>
+        <div className=" container xl:max-w-[94.52%] mx-auto">
+            <Breadcrumb items={breadcrumbItems} />
 
+            <div className="flex items-start flex-col lg:flex-row  mx-auto gap-4 lg:gap-6">
+                <FilterSideBarProduct categories={allCategories}/>
                 <section className="flex flex-col w-full gap-4 lg:gap-6">
                     <div
                         className="relative hidden md:flex items-center justify-between gap-x-6 h-14 px-8 bg-lightGray3 rounded-2xl">
@@ -85,7 +90,7 @@ function ProductWrapper() {
 
                 />
             )}
-        </>
+        </div>
     );
 }
 
