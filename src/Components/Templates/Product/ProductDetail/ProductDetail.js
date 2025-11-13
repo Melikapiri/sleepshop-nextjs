@@ -6,10 +6,11 @@ import Heart from "@/src/Components/Icons/Heart";
 import Star from "@/src/Components/Icons/Star";
 import Shield from "@/src/Components/Icons/Shield";
 
-const ProductDetail = ({product}) => {
+const ProductDetail = ({product, userId}) => {
     console.log("product =>   ", product)
     console.log("product =>   ", product.category.displayName)
     console.log("product =>   ", product.category.name)
+    console.log("id=> ", userId)
     return (
         <div className="container w-full">
             <Breadcrumb

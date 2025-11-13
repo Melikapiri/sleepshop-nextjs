@@ -35,17 +35,17 @@ function Page(props) {
 
             const result = await res.json()
             if (res.status === 200) {
+
                 toast.success("با موفقیت وارد شدید", {
                     onClose: () => {
                         route.push("/");
                     },
                 });
 
-            } else if(res.status === 401) {
+            } else if (res.status === 401) {
                 toast.error("ایمیل یا پسورد معتبر نیست ")
 
-            }else
-            {
+            } else {
                 toast.error("مشکلی به وجود آمده مجدد تلاش کنید")
 
             }
@@ -57,10 +57,10 @@ function Page(props) {
         <div className=" mt-5">
 
             <div className="container">
-<Breadcrumb items={[
-    {name:'صفحه اصلی',href:'/'},
-    {name:'صفحه ورود'},
-]}/>
+                <Breadcrumb items={[
+                    {name: 'صفحه اصلی', href: '/'},
+                    {name: 'صفحه ورود'},
+                ]}/>
                 <div
                     className="gradiant  shadow shadow-primaryColor overflow-hidden flex items-center justify-center md:gap-6 p-6 xs:py-10 md:p-12  rounded-3xl mx-auto   mb-10">
                     <LoginPageIcon className="hidden sm:block w-auto h-80 md:h-96"/>
