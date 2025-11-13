@@ -14,7 +14,7 @@ export function MenuProvider({children}) {
 
     useEffect(() => {
         const getCategoryData = async () => {
-            const res = await fetch(`/api/categories`)
+            const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/categories`)
             const category = await res.json()
             setMenuItem(category)
         }

@@ -25,7 +25,7 @@ function ProductWrapper() {
 
     useEffect(() => {
         const getCategories = async () => {
-            const res = await fetch(`http://localhost:3000/api/categories`);
+            const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/categories`);
             const data = await res.json();
             setCategories(data);
         };

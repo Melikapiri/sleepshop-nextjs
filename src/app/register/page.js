@@ -47,7 +47,7 @@ function Page() {
                 password: values.password,
             };
 
-            const res = await fetch(`/api/auth/signup`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/signup`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -71,9 +71,6 @@ function Page() {
 
     return (
         <div className="mt-5">
-            <div className="flex flex-col justify-center items-center">
-                <SectionTitle title="ثبت‌نام" />
-            </div>
 
             <div className="container">
                 <Breadcrumb items={[

@@ -25,7 +25,7 @@ function Page(props) {
                 password
             }
 
-            const res = await fetch(`http://localhost:3000/api/auth/signin`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/signin`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -55,9 +55,6 @@ function Page(props) {
 
     return (
         <div className=" mt-5">
-            <div className="flex flex-col	justify-center items-center">
-                <SectionTitle title="صفحه ورود"/>
-            </div>
 
             <div className="container">
 <Breadcrumb items={[

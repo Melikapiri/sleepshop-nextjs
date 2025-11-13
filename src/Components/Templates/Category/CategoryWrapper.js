@@ -30,7 +30,7 @@ function CategoryWrapper(props) {
     const [categoryName, setCategoryName] = useState([]);
 
     const findCategoryName = async () => {
-        const res = await fetch(`/api/categories`)
+        const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/categories`)
         const data = await res.json()
         console.log(data)
         setCategory(data)
@@ -42,9 +42,6 @@ function CategoryWrapper(props) {
         setCategoryName(category.data?.find(item => item.name === pathname[pathname.length - 1]).displayName)
     }, [category]);
 
-    useEffect(() => {
-        console.log("categoryName => ", categoryName)
-    }, [categoryName]);
     const filterProductHandler = async () => {
         const filtered = allProduct.filter(product => product.category.name === pathname[pathname.length - 1]);
         setFilterProduct(filtered);
@@ -67,10 +64,6 @@ function CategoryWrapper(props) {
             <div className="flex items-start flex-col lg:flex-row container xl:max-w-[94.52%] mx-auto gap-4">
 
                 <section className="flex flex-col w-full">
-
-                    {
-                        loading && <SectionTitle title={categoryName}/>
-                    }
                     <Breadcrumb items={[{name: "صفحه اصلی", href: "/"},
                         { name: "دسته‌بندی" ,href: '/products'},
                         {name: categoryName}]}/>
