@@ -25,12 +25,12 @@ const ProductDetail = ({product, userId, isLogin}) => {
 
 
             {/*  product body  */}
-            <div className="flex items-start gap-7 mb-8">
+            <div className="flex flex-col lg:flex-row items-start gap-7 mb-8">
 
                 {/* product image wrapper*/}
-                <div className="relative w-[400px] h-[380px] rounded-3xl overflow-hidden">
-                    <Image className="w-full h-full " width={600}
-                           height={600} src={product.img} alt={product.title}/>
+                <div className="relative mx-auto lg:mx-0 w-full xs:w-[450px] lg:w-[400px] h-[340px] xs:h-[380px] rounded-3xl overflow-hidden">
+                    <Image className="w-full h-full " width={700}
+                           height={700} src={product.img} alt={product.title}/>
                     <div
                         className="absolute flex items-center justify-center top-4 right-4 rounded-full h-8 w-8 bg-white">
                         <Heart className="w-5 h-5 text-dark hover:fill-dark transition-colors"/>
@@ -39,11 +39,11 @@ const ProductDetail = ({product, userId, isLogin}) => {
 
                 {/*  product detail  */}
 
-                <div className="w-[700px]">
+                <div className="w-full lg:w-[700px]">
                     {/*  product title  */}
 
 
-                    <h2 className="font-Modam-SemiBold text-3xl mb-4">{product.title}</h2>
+                    <h2 className="font-Modam-SemiBold text-3xl mb-4 line-clamp-2">{product.title}</h2>
                     <div className="flex flex-col gap-5 ">
                         <div className="flex items-center justify-between gap-5 ">
                             <div>
@@ -100,25 +100,27 @@ const ProductDetail = ({product, userId, isLogin}) => {
                         </ul>
                     </div>
                     {/*  add to basket  */}
-                    <div className="flex items-center mt-16 gap-10">
+                    <div className="flex flex-col-reverse mx-auto md:mx-0 md:flex-row items-center mt-10 md:mt-16 gap-8 md:gap-10">
 
-                        <div className="inline-flex items-center   gap-8 py-4 px-24 rounded-lg bg-lightBlue">
+                        <div className="inline-flex items-center   gap-8 py-4  px-5 xs:px-20 rounded-lg bg-lightBlue">
                             <button className="text-lg text-white">افزودن به سبد خرید</button>
                             <span className="block h-5 w-px bg-white"></span>
-                            <button className="text-lg text-white">
+                            <p className="text-lg text-white">
                                 {product.price.toLocaleString()}
                                 {" "}
                                 تومان
-                            </button>
+                            </p>
                         </div>
-                        <div className="flex items-center">
-                            <div className="flex items-center justify-center w-14 h-14 rounded-lg bg-gray-100">
+                        <div className="flex items-center ml-auto md:ml-0">
+                            <div
+                                className="flex items-center justify-center w-14 h-14 rounded-lg bg-gray-100 cursor-pointer">
                                 <Plus className="w-5 h-5 text-black"/>
                             </div>
-                            <div className="flex items-center justify-center w-14 h-14 ">
-5
+                            <div className="flex items-center justify-center w-14 h-14 font-Yekan-Medium text-xl ">
+                                5
                             </div>
-                            <div className="flex items-center justify-center w-14 h-14 rounded-lg bg-gray-100">
+                            <div
+                                className="flex items-center justify-center w-14 h-14 rounded-lg bg-gray-100 cursor-pointer">
                                 <Minus className="w-5 h-5 text-black"/>
                             </div>
                         </div>
