@@ -16,9 +16,7 @@ function HomeSlider() {
             <div className="flex flex-col items-center justify-center">
                 <img src="/images/Flowerpot-and%20-bed.png" alt="" />
 
-                {/* اسلایدر Swiper با پیکربندی صحیح */}
-                <div
-                    data-aos="fade-up"
+                <div data-aos="fade-up"
                     data-aos-anchor-placement="center-bottom"
                     className="absolute left-0 right-0 -bottom-7 xs:-bottom-2 lg:bottom-0 mx-auto bg-primaryColor w-full lg:max-w-[980px] py-3 sm:py-6 lg:px-20 xl:px-[70px] lg:rounded-3xl"
                 >
