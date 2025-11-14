@@ -14,5 +14,5 @@ export default async function ProductPage({params}) {
 
 
     console.log("user===========================================================>", user)
-    return <ProductDetail userId={user._id.toString()} product={product}/>;
+    return <ProductDetail userId={user?._id.toString()} isLogin={user ? true : false} product={product}/>;
 }
