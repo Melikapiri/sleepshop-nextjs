@@ -27,7 +27,8 @@ export default async function Page({params}) {
         <div className="my-10">
             <CategoryWrapper
                 categoryName={category.displayName || category.name}
-                products={filteredProducts || []}
+                products={filteredProducts || []
+            }
             />
         </div>
     );

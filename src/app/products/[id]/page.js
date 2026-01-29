@@ -1,7 +1,7 @@
-// page.js
 import connectToDB from "@/configs/db";
 import ProductDetail from "@/src/Components/Templates/Product/ProductDetail/ProductDetail";
 import {authUser} from "@/src/Utils/AuthServer";
+import {notFound} from "next/navigation";
 
 export default async function ProductPage({params}) {
     await connectToDB()
@@ -12,7 +12,7 @@ export default async function ProductPage({params}) {
     const product = await res.json();
     const user = await authUser();
 
+    if (product.id!==id)notFound()
 
-    console.log("user===========================================================>", user)
     return <ProductDetail userId={user?._id.toString()} isLogin={user ? true : false} product={product}/>;
 }
