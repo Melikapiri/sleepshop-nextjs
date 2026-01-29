@@ -150,7 +150,7 @@ const ProductDetail = ({product, userId, isLogin}) => {
                         spaceBetween={30}
                         slidesPerView={1.5}
                         autoplay={{
-                            delay: 3000,
+                            delay: 1000,
                             disableOnInteraction: false,
                         }}
                         breakpoints={{

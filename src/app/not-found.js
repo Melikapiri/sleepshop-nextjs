@@ -9,7 +9,6 @@ function NotFound(props) {
             <div className="flex items-center justify-center">
                 <img src="/404.gif" alt="not found page"/>
             </div>
-            <Footer/>
         </div>
     );
 }
