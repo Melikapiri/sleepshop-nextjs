@@ -23,7 +23,7 @@ const SuggestedProducts = ({categoryId, productId}) => {
 
         relatedProductsHandler()
 
-    }, []);
+    }, [productId]);
 
     useEffect(() => {
         const filterProductsByCategory = productList.filter(product => product.category._id == categoryId).filter(item => item._id !== productId)
@@ -39,7 +39,7 @@ const SuggestedProducts = ({categoryId, productId}) => {
                 <WaveSectionTitle title={"محصولات مرتبط"}/>
             </div>
             <div
-                className="  bg-primaryColor/90 w-full mb-8 px-2 py-3 sm:py-6 lg:px-20 xl:px-[70px]  "
+                className="bg-primaryColor/90 w-full mb-8 px-2 py-3 sm:py-6 lg:px-20 xl:px-[70px]  "
             >
                 <Swiper
                     modules={[Autoplay]}

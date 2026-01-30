@@ -3,7 +3,7 @@ import React from 'react';
 function DesktopMenu({menuItem}) {
     return (
         <ul className="hidden sm:flex items-center sm:gap-6 lg:gap-9 child:tracking-tight font-Yekan-Medium">
-            <li className="text-base text-dark ">
+            <li className="text-base text-lightGray ">
                 <a href="/">صفحه اصلی </a>
             </li>
 

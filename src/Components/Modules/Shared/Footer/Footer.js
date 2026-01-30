@@ -5,6 +5,7 @@ import Location from "@/src/Components/Icons/Location";
 import Whatsapp from "@/src/Components/Icons/Whatsapp";
 import Facebook from "@/src/Components/Icons/Facebook";
 import Instagram from "@/src/Components/Icons/Instagram";
+import Link from "next/link";
 
 function Footer() {
     return (
@@ -13,15 +14,15 @@ function Footer() {
                 <div className="bg-primaryColor p-9 sm:px-16 py-5 rounded-tr-[40px] rounded-tl-[40px]">
                     <div className="flex flex-col justify-center items-start sm:items-center">
                         <div className=" flex items-center justify-between font-Yekan-bold text-lg mx-auto">
-                            <a href="#"
+                            <Link href="/"
                                className="text-white inline-flex items-center gap-3.5 mx-auto">
                                 <LogoFooter className="w-[49px] h-[45px]"/>
                                 آرامیس
-                            </a>
+                            </Link>
                         </div>
                         <ul className="flex flex-wrap justify-items-start sm:items-center sm:justify-center gap-4 sm:gap-9 mt-9 mb-[18px] child:text-lightGray child:font-Yekan-Medium child:text-base ">
                             <li>
-                                <a href="/" className="text-white" >
+                                <a href="/" >
                                     صفحه اصلی
                                 </a>
                             </li>
