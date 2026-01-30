@@ -7,7 +7,7 @@ function HomeSliderItem({icon, title, description}) {
                 {icon}
             </div>
             <div>
-                <p className="text-base sm:text-lg text-white">{title}</p>
+                <p className="text-base md:text-lg text-white">{title}</p>
                 {
                     description && (
                         <p className="font-Yekan-Light text-sm text-lightGray">
