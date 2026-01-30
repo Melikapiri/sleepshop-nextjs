@@ -5,13 +5,12 @@ import {Autoplay} from "swiper/modules";
 import OfferCard from "@/src/Components/Modules/Ui/OfferCard/OfferCard";
 import WaveSectionTitle from "@/src/Components/Modules/Ui/WaveSectionTitle/WaveSectionTitle";
 import {motion} from "framer-motion";
+import SkeletonCard from "@/src/Components/Modules/Ui/SkeletonCard/SkeletonCard";
 
 
 const SuggestedProducts = ({categoryId, productId}) => {
     const [productList, setProductList] = useState([])
     const [otherCategoryProducts, setOtherCategoryProducts] = useState([])
-    const [loader, setLoader] = useState(true)
-
 
     useEffect(() => {
 
@@ -29,7 +28,6 @@ const SuggestedProducts = ({categoryId, productId}) => {
     useEffect(() => {
         const filterProductsByCategory = productList.filter(product => product.category._id == categoryId).filter(item => item._id !== productId)
         setOtherCategoryProducts(filterProductsByCategory)
-        setLoader(false)
     }, [productList]);
 
     return (
@@ -59,30 +57,32 @@ const SuggestedProducts = ({categoryId, productId}) => {
                             slidesPerView: 3,
                         },
                         1024: {
-                            slidesPerView: 4,
+                            slidesPerView: 5,
                         },
                     }}
                     className="w-full"
                 >
                     {
-                    otherCategoryProducts.map((product) => <SwiperSlide key={product._id}>
-                        <motion.div
-                            initial={{opacity: 0, y: 10}}
-                            animate={{opacity: 1, y: 0}}
-                            transition={{ease: "easeOut", duration: 0.3}}
-                        >
-                            {/*<div className="flex flex-row gap-2">*/}
-                            {/*    <div className="animate-pulse bg-gray-300 w-14 h-14 rounded-lg"/>*/}
-                            {/*    <div className="flex flex-col gap-2">*/}
-                            {/*        <div className="animate-pulse bg-gray-300 w-28 h-5 rounded-lg"/>*/}
-                            {/*        <div className="animate-pulse bg-gray-300 w-36 h-3 rounded-lg"/>*/}
-                            {/*        <div className="animate-pulse bg-gray-300 w-36 h-2 rounded-lg"/>*/}
-                            {/*    </div>*/}
-                            {/*</div>*/}
 
-                            <OfferCard products={product}/>
-                        </motion.div>
-                    </SwiperSlide>)
+                        otherCategoryProducts.length > 0 ?
+                            otherCategoryProducts.map((product) => <SwiperSlide key={product._id}>
+                                <motion.div
+                                    initial={{opacity: 0, y: 10}}
+                                    animate={{opacity: 1, y: 0}}
+                                    transition={{ease: "easeOut", duration: 0.3}}
+                                >
+                                    <OfferCard products={product}/>
+                                </motion.div>
+                            </SwiperSlide>) : Array(5).fill(0).map((_, id) =>
+                                <SwiperSlide key={id}>
+                                    <motion.div
+                                        initial={{opacity: 0, y: 10}}
+                                        animate={{opacity: 1, y: 0}}
+                                        transition={{ease: "easeOut", duration: 0.1}}
+                                    >
+                                        <SkeletonCard/>
+                                    </motion.div>
+                                </SwiperSlide>)
                     }
 
 
