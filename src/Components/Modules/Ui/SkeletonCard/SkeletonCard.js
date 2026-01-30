@@ -3,28 +3,35 @@ import React from 'react';
 function SkeletonCard(props) {
     return (
 
-        <div role="status"
-             className="rounded-xl p-4 border border-gray-200  shadow-sm animate-pulse md:p-6 my-4  dark:border-gray-700">
-            <div className="flex items-center justify-center h-40 mb-4 bg-gray-300 rounded-sm dark:bg-gray-700">
-                <svg className=" sm:w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true"
-                     xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
-                    <path
-                        d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z"/>
-                    <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"/>
-                </svg>
+        <div
+            className="flex sm:flex-col sm:justify-between gap-3 sm:gap-0 bg-lightGray2 p-3.5 rounded-xl h-[118px] sm:h-auto animate-pulse">
+            {/* Image Skeleton */}
+            <div className="w-32 sm:h-52 lg:h-40 xl:h-[218px] sm:w-auto">
+                <div className="w-full h-full rounded-lg shadow-md border border-stone-300 bg-stone-200"/>
             </div>
 
-            <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
-            <div className="flex items-center mt-4">
-                <span className="block w-10 h-10 me-3 bg-gray-200 rounded-xl dark:bg-gray-700">
-                </span>
+            {/* Title Skeleton (sm) */}
+            <div className="hidden sm:block mb-3 mt-4">
+                <div className="h-4 w-3/4 rounded bg-stone-200"/>
+            </div>
 
-                <div className="w-full">
-                    <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-32 mb-2"></div>
-                    <div className="w-full h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+            <div className="bg-white rounded-lg p-2 w-full">
+                {/* Title Skeleton (mobile) */}
+                <div className="sm:hidden mb-4">
+                    <div className="h-4 w-2/3 rounded bg-stone-200"/>
+                </div>
+
+                <div className="flex items-center justify-between h-12">
+                    {/* Price Skeleton */}
+                    <div className="space-y-2">
+                        <div className="h-3 w-24 rounded bg-stone-200"/>
+                        <div className="h-4 w-32 rounded bg-stone-200"/>
+                    </div>
+
+                    {/* Discount / Icon Skeleton */}
+                    <div className="bg-stone-200 py-2 px-2.5 rounded-lg w-9 h-9"/>
                 </div>
             </div>
-            <span className="sr-only">Loading...</span>
         </div>
     );
 }
