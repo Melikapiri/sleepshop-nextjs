@@ -1,21 +1,30 @@
 "use client"
-import React, {useState} from "react";
+import React, {useState,useEffect} from "react";
+import Select from 'react-select';
 import Breadcrumb from "@/src/Components/Modules/Ui/Breadcrumb/Breadcrumb";
-import Image from "next/image";
-import Heart from "@/src/Components/Icons/Heart";
-import Star from "@/src/Components/Icons/Star";
-import Shield from "@/src/Components/Icons/Shield";
-import Plus from "@/src/Components/Icons/Plus";
-import Minus from "@/src/Components/Icons/Minus";
 import HighlightSlider from "@/src/Components/Templates/Product/HighlightSlider/HighlightSlider";
 import ProductDescription from "@/src/Components/Templates/Product/ProductDescription/ProductDescription";
 import SuggestedProducts from "@/src/Components/Templates/Product/SuggestedProducts/SuggestedProducts";
 import ProductFeatures from "@/src/Components/Templates/Product/ProductFeatures/ProductFeatures";
+import StateData from "@/src/Utils/StateData";
+
+// const options = [
+//     {value: 'chocolate', label: 'Chocolate'},
+//     {value: 'strawberry', label: 'Strawberry'},
+//     {value: 'vanilla', label: 'Vanilla'},
+// ];
+const city=StateData()
 
 const ProductDetail = ({product, userId, isLogin}) => {
-    console.log("product ایدیییی =>   ", product.category._id)
-    console.log("product =>   ", product.category.displayName)
-    console.log("product =>   ", product.category.name)
+
+    const [selectedOption, setSelectedOption] = useState(null);
+    // const [city, setCity] = useState(StateData());
+
+    // useEffect(() => {
+    //     console.log(city)
+    // }, [city]);
+
+
     console.log("id=> ", userId)
     return (
         <>
@@ -35,6 +44,16 @@ const ProductDetail = ({product, userId, isLogin}) => {
                                  size={product.size} price={product.price}/>
             </div>
             <HighlightSlider/>
+            <div className="App">
+                <Select
+                    instanceId="state-select"
+                    id="state-select"
+                    placeholder="استان را انتخاب کنید..."
+                    defaultValue={selectedOption}
+                    onChange={setSelectedOption}
+                    options={city}
+                />
+            </div>
             <ProductDescription description={product.description}/>
             <SuggestedProducts productId={product._id} categoryId={product.category._id}/>
         </>

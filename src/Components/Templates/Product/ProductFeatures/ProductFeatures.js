@@ -8,7 +8,7 @@ import Minus from "@/src/Components/Icons/Minus";
 import {toast} from "react-toastify";
 
 const ProductFeatures = ({img, title, _id, tags, comments, score, material, size, price}) => {
-    const [count, setCount] = useState(1);
+    const [count, setCount] = useState(0);
     const [isInCart, setIsInCart] = useState(false);
 
     const totalPrice = count * price;
@@ -24,7 +24,7 @@ const ProductFeatures = ({img, title, _id, tags, comments, score, material, size
             setCount(cartItem.count);
             setIsInCart(true);
         }
-    }, [_id]);
+    }, []);
 
     const updateCart = (newCount) => {
         const cart = getCart();
@@ -33,7 +33,7 @@ const ProductFeatures = ({img, title, _id, tags, comments, score, material, size
         if (newCount <= 0) {
             cart.splice(itemIndex, 1);
             localStorage.setItem("cart", JSON.stringify(cart));
-            setCount(1);
+            setCount(0);
             setIsInCart(false);
             toast.info("محصول از سبد خرید حذف شد");
         } else {
@@ -41,7 +41,6 @@ const ProductFeatures = ({img, title, _id, tags, comments, score, material, size
                 cart[itemIndex].count = newCount;
                 cart[itemIndex].totalPrice = newCount * price;
             } else {
-                // اضافه کردن جدید
                 cart.push({
                     id: _id,
                     name: title,
@@ -55,7 +54,6 @@ const ProductFeatures = ({img, title, _id, tags, comments, score, material, size
 
             localStorage.setItem("cart", JSON.stringify(cart));
             setCount(newCount);
-            toast.success(`تعداد محصول به ${newCount} عدد به‌روز شد`);
         }
     };
 
@@ -75,7 +73,7 @@ const ProductFeatures = ({img, title, _id, tags, comments, score, material, size
 
     const handleCartButton = () => {
         if (count === 0) {
-            updateCart(0); // حذف محصول
+            updateCart(0);
         } else {
             updateCart(count);
         }
@@ -160,7 +158,8 @@ const ProductFeatures = ({img, title, _id, tags, comments, score, material, size
                         </button>
                         <span className="block h-5 w-px bg-white"></span>
                         <p className="text-sm sm:text-lg text-white">
-                            {totalPrice.toLocaleString()} تومان
+                            {!totalPrice?price.toLocaleString():totalPrice.toLocaleString()}
+                         تومان
                         </p>
                     </div>
 
