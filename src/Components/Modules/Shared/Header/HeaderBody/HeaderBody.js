@@ -14,19 +14,7 @@ import Signin from "@/src/Components/Icons/SignIn";
 
 function HeaderBody({isLogin, username}) {
     const {isMenuOpen, toggleMenu, setIsMenuOpen,menuItem} = useMenu()
-    // const [menuItem, setMenuItem] = useState([])
-    // useEffect(() => {
-    //     const getCategoryData = async () => {
-    //         const res = await fetch(`/api/categories`)
-    //         const category = await res.json()
-    //         setMenuItem(category.data.slice(0, 3))
-    //     }
-    //     getCategoryData()
-    // }, []);
-    //
-    // useEffect(() => {
-    //     console.log("menuItem", menuItem)
-    // }, [menuItem]);
+
     return (
         <div className="flex justify-between items-center mx-auto mt-3 lg:mt-6 ">
             {/* Open menu Btn*/}
