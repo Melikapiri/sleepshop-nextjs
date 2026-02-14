@@ -80,7 +80,7 @@ function HeaderBody({isLogin, username}) {
                 <a href="">
                     <Search className="hidden sm:inline-block w-5 h-5 text-dark"/>
                 </a>
-                <a href=""
+                <a href="/basket"
                    className="p-2 text-white bg-lightBlue sm:bg-transparent rounded-lg sm:text-dark sm:p-0">
                     <Bag className="  w-5 h-5 "/>
                 </a>
