@@ -3,6 +3,7 @@ import React, {useState, useEffect} from "react";
 import Cart from "@/src/Components/Templates/Basket/Cart";
 import OrderSummary from "@/src/Components/Templates/Basket/OrderSummary";
 import Breadcrumb from "@/src/Components/Modules/Ui/Breadcrumb/Breadcrumb";
+import EmptyCart from "@/src/Components/Templates/Basket/EmptyCart";
 
 const Table = () => {
     const [products, setProducts] = useState([])
@@ -24,7 +25,7 @@ const Table = () => {
 
     return (
         <section className="container  py-4  dark:bg-gray-900 border-dashed ">
-
+<EmptyCart/>
 
             <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
                 <Breadcrumb

@@ -2,14 +2,9 @@ import React, {useState, useEffect} from "react";
 import Image from 'next/image'
 import XMark from "@/src/Components/Icons/X-mark";
 import Heart from "@/src/Components/Icons/Heart";
-import Plus from "@/src/Components/Icons/Plus";
 
 const Cart = ({productDetail, setProducts}) => {
-
-
     const [allProductBasket, setAllProductBasket] = useState([])
-    const [quantityChanged, setQuantityChanged] = useState(false);
-
 
     useEffect(() => {
         setAllProductBasket(getProductFromLocalStorage())
@@ -19,10 +14,7 @@ const Cart = ({productDetail, setProducts}) => {
         const getProduct = JSON.parse(localStorage.getItem("cart"))
         return getProduct.length ? getProduct : null
     }
-    //
-    // useEffect(() => {
-    //     console.log("all product =>", allProductBasket)
-    // }, [allProductBasket]);
+
 
 
     const removeProductForBasket = (id) => {
@@ -44,9 +36,7 @@ const Cart = ({productDetail, setProducts}) => {
         setProducts((prev) => {
             const exists = prev.some((item) => item.id === id);
             if (!exists) return prev;
-
-            return prev
-                .map((item) =>
+            return prev.map((item) =>
                     item.id === id
                         ? {
                             ...item,
