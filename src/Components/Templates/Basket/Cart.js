@@ -2,11 +2,13 @@ import React, {useState, useEffect} from "react";
 import Image from 'next/image'
 import XMark from "@/src/Components/Icons/X-mark";
 import Heart from "@/src/Components/Icons/Heart";
+import Plus from "@/src/Components/Icons/Plus";
 
 const Cart = ({productDetail, setProducts}) => {
 
 
     const [allProductBasket, setAllProductBasket] = useState([])
+    const [quantityChanged, setQuantityChanged] = useState(false);
 
 
     useEffect(() => {
@@ -17,7 +19,7 @@ const Cart = ({productDetail, setProducts}) => {
         const getProduct = JSON.parse(localStorage.getItem("cart"))
         return getProduct.length ? getProduct : null
     }
-
+    //
     // useEffect(() => {
     //     console.log("all product =>", allProductBasket)
     // }, [allProductBasket]);
@@ -25,16 +27,36 @@ const Cart = ({productDetail, setProducts}) => {
 
     const removeProductForBasket = (id) => {
         const removeItemBasket = allProductBasket.filter(item => item.id !== id)
-        localStorage.setItem("cart", JSON.stringify(removeItemBasket));
         setProducts(removeItemBasket)
+
+        localStorage.setItem("cart", JSON.stringify(removeItemBasket));
     }
 
-    const incrementProductQuantity = () => {
-
+    const incrementProductQuantity = (id) => {
+        setProducts(prev => prev.map(item => item.id === id ? {
+            ...item,
+            count: item.count + 1,
+            totalPrice: (item.count + 1) * item.price
+        } : item));
     }
 
-    const decrementProductQuantity = () => {
+    const decrementProductQuantity = (id) => {
+        setProducts((prev) => {
+            const exists = prev.some((item) => item.id === id);
+            if (!exists) return prev;
 
+            return prev
+                .map((item) =>
+                    item.id === id
+                        ? {
+                            ...item,
+                            count: item.count - 1,
+                            totalPrice: (item.count - 1) * item.price,
+                        }
+                        : item
+                )
+                .filter((item) => item.count > 0);
+        });
     }
 
 
@@ -57,24 +79,17 @@ const Cart = ({productDetail, setProducts}) => {
             <div className="flex items-center justify-between md:order-3 md:justify-end">
                 <div className="flex items-center">
                     <button type="button"
-                            className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
-                        <svg className="h-2.5 w-2.5 text-gray-900 dark:text-white"
-                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                             viewBox="0 0 18 2">
-                            <path stroke="currentColor" strokeLinecap="round"
-                                  strokeLinejoin="round" strokeWidth={2} d="M1 1h16"/>
-                        </svg>
+                            onClick={() => incrementProductQuantity(productDetail.id)}
+                            className="inline-flex text-gray-900 p-2.5 h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
+                        +
                     </button>
                     <p
                         className="w-10 shrink-0 border-0 bg-transparent text-center text-sm font-medium text-gray-900 focus:outline-none focus:ring-0 dark:text-white">{productDetail.count}</p>
                     <button type="button"
+                            onClick={() => decrementProductQuantity(productDetail.id)}
+
                             className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
-                        <svg className="h-2.5 w-2.5 text-gray-900 dark:text-white"
-                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                             viewBox="0 0 18 18">
-                            <path stroke="currentColor" strokeLinecap="round"
-                                  strokeLinejoin="round" strokeWidth={2} d="M9 1v16M1 9h16"/>
-                        </svg>
+                        -
                     </button>
                 </div>
                 <div className="text-end md:order-4 md:w-32">

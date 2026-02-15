@@ -17,7 +17,8 @@ const Table = () => {
     }, []);
 
     useEffect(() => {
-        console.log("product basket =>", products)
+        localStorage.setItem("cart", JSON.stringify(products));
+        console.log(products)
     }, [products]);
 
 
