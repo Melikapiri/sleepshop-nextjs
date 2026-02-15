@@ -36,7 +36,8 @@ const Table = () => {
                     <div className="mx-auto w-full flex-none lg:max-w-2xl xl:max-w-4xl">
                         <div className="space-y-6">
                             {
-                                products?.map((product, index) => <Cart key={index} productDetail={product}/>)
+                                products?.map((product, index) => <Cart key={index} setProducts={setProducts}
+                                                                        productDetail={product}/>)
                             }
 
                         </div>

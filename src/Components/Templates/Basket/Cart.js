@@ -1,13 +1,46 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Image from 'next/image'
 import XMark from "@/src/Components/Icons/X-mark";
 import Heart from "@/src/Components/Icons/Heart";
 
-const Cart = ({productDetail}) => {
-    console.log("محصولات سبد خرید  ", productDetail)
+const Cart = ({productDetail, setProducts}) => {
+
+
+    const [allProductBasket, setAllProductBasket] = useState([])
+
+
+    useEffect(() => {
+        setAllProductBasket(getProductFromLocalStorage())
+    }, []);
+
+    const getProductFromLocalStorage = () => {
+        const getProduct = JSON.parse(localStorage.getItem("cart"))
+        return getProduct.length ? getProduct : null
+    }
+
+    // useEffect(() => {
+    //     console.log("all product =>", allProductBasket)
+    // }, [allProductBasket]);
+
+
+    const removeProductForBasket = (id) => {
+        const removeItemBasket = allProductBasket.filter(item => item.id !== id)
+        localStorage.setItem("cart", JSON.stringify(removeItemBasket));
+        setProducts(removeItemBasket)
+    }
+
+    const incrementProductQuantity = () => {
+
+    }
+
+    const decrementProductQuantity = () => {
+
+    }
+
+
     return (
         <div
-            className="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
+            className="space-y-4 shadow border border-lightGray/10 rounded-xl py-2 px-2.5 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
             <a href="#" className="shrink-0 md:order-1">
                 <Image className="rounded-xl h-20 w-20 dark:hidden"
                        src={productDetail.img}
@@ -58,6 +91,7 @@ const Cart = ({productDetail}) => {
                         <Heart className="h-5 w-5"/>
                     </button>
                     <button type="button"
+                            onClick={() => removeProductForBasket(productDetail.id)}
                             className="inline-flex justify-center items-center text-sm font-medium text-red-600 hover:underline dark:text-red-500">
                         حذف {""}
                         <XMark className=" h-5 w-5 text-red-600"/>
