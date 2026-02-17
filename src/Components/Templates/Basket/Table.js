@@ -4,6 +4,7 @@ import Cart from "@/src/Components/Templates/Basket/Cart";
 import OrderSummary from "@/src/Components/Templates/Basket/OrderSummary";
 import Breadcrumb from "@/src/Components/Modules/Ui/Breadcrumb/Breadcrumb";
 import EmptyCart from "@/src/Components/Templates/Basket/EmptyCart";
+import Loader from "@/src/Components/Modules/Ui/Loader/Loader";
 
 const Table = () => {
     const [products, setProducts] = useState([])
@@ -25,6 +26,7 @@ const Table = () => {
 
     return (
         <section className="container  py-4  dark:bg-gray-900 border-dashed ">
+            <Loader/>
             {
                 products.length === 0 ? (<EmptyCart/>) : (<div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
                         <Breadcrumb

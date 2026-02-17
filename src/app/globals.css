@@ -293,4 +293,54 @@
         background-repeat: no-repeat;
         background-size: cover;
     }
+
+    .loader-2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 10em;
+    }
+
+    /* Circle elements */
+    .circle-loader {
+        width: 1em;
+        height: 1em;
+        margin: 0 0.25em;
+        border-radius: 50%;
+        background-color: #a8d5e2;
+        animation: wave 1.5s infinite ease-in-out;
+        transition: background-color 0.3s ease;
+    }
+
+    /* Animation */
+    @keyframes wave {
+        0%, 100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-1em);
+        }
+    }
+
+    /* Delay for each circle */
+    .circle-loader:nth-child(1) {
+        animation-delay: 0s;
+    }
+
+    .circle-loader:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    .circle-loader:nth-child(3) {
+        animation-delay: 0.4s;
+    }
+
+    .circle-loader:nth-child(4) {
+        animation-delay: 0.6s;
+    }
+
+    .circle-loader:nth-child(5) {
+        animation-delay: 0.8s;
+    }
 }
