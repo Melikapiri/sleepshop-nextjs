@@ -78,6 +78,7 @@ const Cart = ({productDetail, setProducts}) => {
                     </button>
                 </div>
                 <div className="text-end md:order-4 md:w-32">
+                    <p className="text-sm text-gray-400">{productDetail.price.toLocaleString()} تومان </p>
                     <p className="text-base font-bold text-gray-900">{productDetail.totalPrice.toLocaleString()} تومان </p>
                 </div>
             </div>

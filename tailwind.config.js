@@ -50,6 +50,7 @@ module.exports = {
                 lightGray3: "#FAFAFA",
                 lightTextGray:"#929292",
                 dark: "#363636",
+                star:"#FF9F0E"
             },
             spacing: {
                 '4.5': '1.125rem',

@@ -7,6 +7,7 @@ import ProductDescription from "@/src/Components/Templates/Product/ProductDescri
 import SuggestedProducts from "@/src/Components/Templates/Product/SuggestedProducts/SuggestedProducts";
 import ProductFeatures from "@/src/Components/Templates/Product/ProductFeatures/ProductFeatures";
 import StateData from "@/src/Utils/StateData";
+import UserFeedback from "@/src/Components/Templates/Product/UserFeedback/UserFeedback";
 
 // const options = [
 //     {value: 'chocolate', label: 'Chocolate'},
@@ -56,6 +57,7 @@ const ProductDetail = ({product, userId, isLogin}) => {
             </div>
             <ProductDescription description={product.description}/>
             <SuggestedProducts productId={product._id} categoryId={product.category._id}/>
+            <UserFeedback/>
         </>
 
     );
