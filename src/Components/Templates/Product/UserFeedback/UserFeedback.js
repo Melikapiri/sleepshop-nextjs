@@ -44,7 +44,8 @@ const StarRating = ({value, onChange}) => {
     );
 };
 
-const UserFeedback = () => {
+const UserFeedback = ({comments}) => {
+    console.log("comments=> ",comments)
     return (
         <div className="container my-24">
             {/* Header */}
@@ -130,24 +131,27 @@ const UserFeedback = () => {
                             </div>
                         </div>
                         {/* Rating */}
-                        <div className="my-4">
-                            <p className="text-sm text-dark mb-2">امتیاز شما</p>
-                            <StarRating
-                                value={values.rating}
-                                onChange={(val) => setFieldValue("rating", val)}
-                            />
-                            <div className="text-red-500 text-sm mt-1">
-                                <ErrorMessage name="rating"/>
+                        <div className="flex justify-between items-center my-4">
+                            <div>
+                                <p className="text-sm text-dark mb-2">امتیاز شما</p>
+                                <StarRating
+                                    value={values.rating}
+                                    onChange={(val) => setFieldValue("rating", val)}
+                                />
+                                <div className="text-red-500 text-sm mt-1">
+                                    <ErrorMessage name="rating"/>
+                                </div>
                             </div>
+                            {/* Submit */}
+                            <button
+                                type="submit"
+                                className="px-6 py-2 rounded-xl bg-primaryColor  text-white"
+                            >
+                                ثبت دیدگاه
+                            </button>
                         </div>
 
-                        {/* Submit */}
-                        <button
-                            type="submit"
-                            className="px-6 py-2 rounded-xl bg-lightBlue text-white"
-                        >
-                            ارسال نظر
-                        </button>
+
                     </Form>
                 )}
             </Formik>

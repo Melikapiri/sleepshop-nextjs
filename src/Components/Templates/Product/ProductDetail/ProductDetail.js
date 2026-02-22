@@ -57,7 +57,7 @@ const ProductDetail = ({product, userId, isLogin}) => {
             </div>
             <ProductDescription description={product.description}/>
             <SuggestedProducts productId={product._id} categoryId={product.category._id}/>
-            <UserFeedback/>
+            <UserFeedback comments={product.comments}/>
         </>
 
     );
