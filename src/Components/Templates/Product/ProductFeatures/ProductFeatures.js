@@ -28,40 +28,38 @@ const ProductFeatures = ({img, title, _id, tags, comments, score, material, size
         }
     }, []);
 
+// فقط بخش updateCart رو اصلاح کن
     const updateCart = (newCount) => {
         const cart = getCart();
         const itemIndex = cart.findIndex(item => item.id === _id);
 
+        const itemData = {
+            id: _id,
+            name: title,
+            price: finalPrice,
+            originalPrice: originalPrice,
+            img: img,
+            count: newCount,
+            totalPrice: newCount * finalPrice,
+        };
+
         if (newCount <= 0) {
-            cart.splice(itemIndex, 1);
-            localStorage.setItem("cart", JSON.stringify(cart));
+            if (itemIndex !== -1) cart.splice(itemIndex, 1);
             setCount(0);
             setIsInCart(false);
             toast.info("محصول از سبد خرید حذف شد");
         } else {
             if (itemIndex !== -1) {
-                cart[itemIndex].count = newCount;
-                cart[itemIndex].totalPrice = newCount * finalPrice;
-                cart[itemIndex].originalPrice = newCount * originalPrice;
+                cart[itemIndex] = { ...cart[itemIndex], ...itemData };
             } else {
-                cart.push({
-                    id: _id,
-                    name: title,
-                    price: finalPrice,
-                    count: newCount,
-                    totalPrice: newCount * finalPrice,
-                    img: img,
-                    originalPrice: newCount * originalPrice
-
-                });
+                cart.push(itemData);
                 setIsInCart(true);
             }
-
-            localStorage.setItem("cart", JSON.stringify(cart));
             setCount(newCount);
         }
-    };
 
+        localStorage.setItem("cart", JSON.stringify(cart));
+    };
     const increment = () => {
         const cartItem = getCartItem();
         updateCart(cartItem ? cartItem.count + 1 : count + 1);

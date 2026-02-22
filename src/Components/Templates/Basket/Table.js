@@ -25,21 +25,22 @@ const Table = () => {
     }, []);
 
     useEffect(() => {
-        setLoader(false)
         localStorage.setItem("cart", JSON.stringify(products));
-        const totalOriginalPrice = products.reduce(
-            (sum, item) => sum + item.originalPrice, 0)
-        setCartOriginalPrice(totalOriginalPrice)
 
-        const totalDiscountedPrice = products.reduce(
-            (sum, item) => sum + item.totalPrice, 0)
-        setCartDiscountedPrice(totalDiscountedPrice)
+        const totalOriginalPrice = products.reduce((sum, item) => {
+            const unitOriginal = Number(item.originalPrice || item.price || 0);
+            const qty = Number(item.count) || 1;
+            return sum + (unitOriginal * qty);
+        }, 0);
+
+        const totalDiscountedPrice = products.reduce((sum, item) => {
+            return sum + Number(item.totalPrice || 0);
+        }, 0);
+
+        setCartOriginalPrice(totalOriginalPrice);
+        setCartDiscountedPrice(totalDiscountedPrice);
     }, [products]);
 
-
-    // useEffect(() => {
-    //     console.log("cartOriginalPrice=> ", cartOriginalPrice)
-    // }, [cartOriginalPrice]);
 
 
     return (

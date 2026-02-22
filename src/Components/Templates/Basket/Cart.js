@@ -16,38 +16,33 @@ const Cart = ({productDetail, setProducts}) => {
     }
 
 
-
     const removeProductForBasket = (id) => {
-        const removeItemBasket = allProductBasket.filter(item => item.id !== id)
-        setProducts(removeItemBasket)
-
-        localStorage.setItem("cart", JSON.stringify(removeItemBasket));
-    }
+        setProducts((prevProducts) => {
+            const updated = prevProducts.filter((item) => item.id !== id);
+            localStorage.setItem("cart", JSON.stringify(updated));
+            return updated;
+        });
+    };
 
     const incrementProductQuantity = (id) => {
-        setProducts(prev => prev.map(item => item.id === id ? {
-            ...item,
-            count: item.count + 1,
-            totalPrice: (item.count + 1) * item.price
-        } : item));
-    }
+        setProducts(prev => prev.map(item =>
+            item.id === id
+                ? { ...item, count: item.count + 1, totalPrice: (item.count + 1) * item.price }
+                : item
+        ));
+    };
 
     const decrementProductQuantity = (id) => {
         setProducts((prev) => {
-            const exists = prev.some((item) => item.id === id);
-            if (!exists) return prev;
-            return prev.map((item) =>
+            return prev
+                .map((item) =>
                     item.id === id
-                        ? {
-                            ...item,
-                            count: item.count - 1,
-                            totalPrice: (item.count - 1) * item.price,
-                        }
+                        ? { ...item, count: item.count - 1, totalPrice: (item.count - 1) * item.price }
                         : item
                 )
                 .filter((item) => item.count > 0);
         });
-    }
+    };
 
 
     return (
@@ -83,21 +78,22 @@ const Cart = ({productDetail, setProducts}) => {
                     </button>
                 </div>
                 <div className="text-end md:order-4 md:w-32">
-                    <p className="text-base font-bold text-gray-900 dark:text-white">{productDetail.totalPrice.toLocaleString()} تومان </p>
+                    <p className="text-base font-bold text-gray-900">{productDetail.totalPrice.toLocaleString()} تومان </p>
                 </div>
             </div>
             <div className="w-full min-w-0 flex-1 space-y-4 md:order-2 md:max-w-md">
                 <a href={`products/${productDetail.id}`}
                    className="text-base font-medium text-gray-900 ">{productDetail.name}</a>
-                <div className="flex  items-center gap-4">
+                <div className="flex justify-between sm:justify-normal items-center gap-4">
                     <button type="button"
-                            className="inline-flex justify-center items-center text-sm font-medium text-gray-500 hover:text-gray-900 hover:underline dark:text-gray-400 dark:hover:text-white">
-                        اضافه به علاقه مندی ها
-                        <Heart className="h-5 w-5"/>
+                            className="inline-flex justify-center items-center text-sm font-medium text-gray-500  ">
+                        علاقه‌مندی
+
+                         <Heart className="h-5 w-5"/>
                     </button>
                     <button type="button"
                             onClick={() => removeProductForBasket(productDetail.id)}
-                            className="inline-flex justify-center items-center text-sm font-medium text-red-600 hover:underline dark:text-red-500">
+                            className="inline-flex justify-center items-center text-sm font-medium text-red-600 ">
                         حذف {""}
                         <XMark className=" h-5 w-5 text-red-600"/>
 

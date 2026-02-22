@@ -12,17 +12,17 @@ const OrderSummary = ({cartOriginalPrice, cartDiscountedPrice, saving}) => {
                             <dt className="text-sm font-bold font-Yekan-Regula text-gray-500 ">
                                 قیمت کالاها:
                             </dt>
-                            <dd className="text-sm font-medium text-gray-900 ">{cartOriginalPrice.toLocaleString()} تومان</dd>
+                            <dd className="text-sm font-medium text-gray-900 ">{cartOriginalPrice?.toLocaleString()} تومان</dd>
                         </dl>
                         <dl className="flex items-center justify-between gap-4">
                             <dt className=" text-sm font-bold text-gray-800 ">جمع سبد خرید:</dt>
-                            <dd className="text-base  text-gray-800">{cartDiscountedPrice.toLocaleString()} تومان</dd>
+                            <dd className="text-base  text-gray-800">{cartDiscountedPrice?.toLocaleString()} تومان</dd>
                         </dl>
                         {saving > 0 && (<dl className="flex items-center justify-between gap-4">
                             <dt className="text-sm font-bold text-green-500 dark:text-gray-400">
                                 سود شما :
                             </dt>
-                            <dd className="text-sm font-medium text-green-900 ">{saving.toLocaleString()} تومان</dd>
+                            <dd className="text-sm font-medium text-green-900 ">{saving?.toLocaleString()} تومان</dd>
                         </dl>)}
 
                     </div>
