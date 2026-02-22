@@ -41,7 +41,7 @@ const ProductDetail = ({product, userId, isLogin}) => {
                 {/*  product body  */}
                 <ProductFeatures img={product.img} title={product.title} _id={product._id} tags={product.tags}
                                  comments={product.comments} score={product.score} material={product.material}
-                                 size={product.size} price={product.finalPrice}/>
+                                 size={product.size} originalPrice={product.price} finalPrice={product.finalPrice}  />
             </div>
             <HighlightSlider/>
             <div className="App">

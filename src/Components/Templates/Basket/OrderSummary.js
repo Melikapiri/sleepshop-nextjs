@@ -1,33 +1,30 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 
-const OrderSummary = () => {
+const OrderSummary = ({cartOriginalPrice, cartDiscountedPrice, saving}) => {
+
     return (
         <div className="mx-auto mt-6 max-w-4xl flex-1 space-y-6 lg:mt-0 lg:w-full">
             <div
                 className="space-y-4 rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 sm:p-6">
-                <p className="text-xl font-semibold text-gray-900 dark:text-white">Order summary</p>
                 <div className="space-y-4">
                     <div className="space-y-2">
                         <dl className="flex items-center justify-between gap-4">
-                            <dt className="text-base font-normal text-gray-500 dark:text-gray-400">Original
-                                price
+                            <dt className="text-sm font-bold font-Yekan-Regula text-gray-500 ">
+                                قیمت کالاها:
                             </dt>
-                            <dd className="text-base font-medium text-gray-900 dark:text-white">$7,592.00</dd>
+                            <dd className="text-sm font-medium text-gray-900 ">{cartOriginalPrice.toLocaleString()} تومان</dd>
                         </dl>
                         <dl className="flex items-center justify-between gap-4">
-                            <dt className="text-base font-normal text-gray-500 dark:text-gray-400">Savings</dt>
-                            <dd className="text-base font-medium text-green-600">-$299.00</dd>
+                            <dt className=" text-sm font-bold text-gray-800 ">جمع سبد خرید:</dt>
+                            <dd className="text-base  text-gray-800">{cartDiscountedPrice.toLocaleString()} تومان</dd>
                         </dl>
-                        <dl className="flex items-center justify-between gap-4">
-                            <dt className="text-base font-normal text-gray-500 dark:text-gray-400">Store
-                                Pickup
+                        {saving > 0 && (<dl className="flex items-center justify-between gap-4">
+                            <dt className="text-sm font-bold text-green-500 dark:text-gray-400">
+                                سود شما :
                             </dt>
-                            <dd className="text-base font-medium text-gray-900 dark:text-white">$99</dd>
-                        </dl>
-                        <dl className="flex items-center justify-between gap-4">
-                            <dt className="text-base font-normal text-gray-500 dark:text-gray-400">Tax</dt>
-                            <dd className="text-base font-medium text-gray-900 dark:text-white">$799</dd>
-                        </dl>
+                            <dd className="text-sm font-medium text-green-900 ">{saving.toLocaleString()} تومان</dd>
+                        </dl>)}
+
                     </div>
                     <dl className="flex items-center justify-between gap-4 border-t border-gray-200 pt-2 dark:border-gray-700">
                         <dt className="text-base font-bold text-gray-900 dark:text-white">Total</dt>
@@ -59,7 +56,7 @@ const OrderSummary = () => {
                             you have a voucher or gift card? </label>
                         <input type="text"
                                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                              />
+                        />
                     </div>
                     <button type="submit"
                             className="flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Apply

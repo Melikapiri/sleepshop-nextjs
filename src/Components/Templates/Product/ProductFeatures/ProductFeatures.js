@@ -7,11 +7,13 @@ import Plus from "@/src/Components/Icons/Plus";
 import Minus from "@/src/Components/Icons/Minus";
 import {toast} from "react-toastify";
 
-const ProductFeatures = ({img, title, _id, tags, comments, score, material, size, price}) => {
+const ProductFeatures = ({img, title, _id, tags, comments, score, material, size, finalPrice, originalPrice}) => {
     const [count, setCount] = useState(0);
     const [isInCart, setIsInCart] = useState(false);
 
-    const totalPrice = count * price;
+    const totalPrice = count * finalPrice;
+    const totalOriginalPrice = count * originalPrice;
+
 
     const getCart = () => JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -39,15 +41,18 @@ const ProductFeatures = ({img, title, _id, tags, comments, score, material, size
         } else {
             if (itemIndex !== -1) {
                 cart[itemIndex].count = newCount;
-                cart[itemIndex].totalPrice = newCount * price;
+                cart[itemIndex].totalPrice = newCount * finalPrice;
+                cart[itemIndex].originalPrice = newCount * originalPrice;
             } else {
                 cart.push({
                     id: _id,
                     name: title,
-                    price: price,
+                    price: finalPrice,
                     count: newCount,
-                    totalPrice: newCount * price,
-                    img: img
+                    totalPrice: newCount * finalPrice,
+                    img: img,
+                    originalPrice: newCount * originalPrice
+
                 });
                 setIsInCart(true);
             }
@@ -90,7 +95,8 @@ const ProductFeatures = ({img, title, _id, tags, comments, score, material, size
     return (
         <div className="flex flex-col lg:flex-row items-start gap-7 mb-8">
             {/* product image wrapper */}
-            <div className="relative mx-auto lg:mx-0 w-full xs:w-[450px] lg:w-[400px] h-[330px] xs:h-[380px] rounded-3xl overflow-hidden">
+            <div
+                className="relative mx-auto lg:mx-0 w-full xs:w-[450px] lg:w-[400px] h-[330px] xs:h-[380px] rounded-3xl overflow-hidden">
                 <Image className="w-full h-full" width={700} height={700} src={img} alt={title}/>
                 <div className="absolute flex items-center justify-center top-4 right-4 rounded-full h-8 w-8 bg-white">
                     <Heart className="w-5 h-5 text-dark hover:fill-dark transition-colors"/>
@@ -151,30 +157,35 @@ const ProductFeatures = ({img, title, _id, tags, comments, score, material, size
                 </div>
 
                 {/* add to basket */}
-                <div className="flex flex-col-reverse mx-auto md:mx-0 md:flex-row items-center mt-10 md:mt-16 gap-8 md:gap-10">
-                    <div className={`w-full md:w-auto inline-flex justify-center items-center gap-4 xs:gap-8 py-4 px-2 sm:px-20 rounded-lg ${buttonStyle}`}>
+                <div
+                    className="flex flex-col-reverse mx-auto md:mx-0 md:flex-row items-center mt-10 md:mt-16 gap-8 md:gap-10">
+                    <div
+                        className={`w-full md:w-auto inline-flex justify-center items-center gap-4 xs:gap-8 py-4 px-2 sm:px-20 rounded-lg ${buttonStyle}`}>
                         <button onClick={handleCartButton} className="text-sm sm:text-lg text-white">
                             {buttonText}
                         </button>
                         <span className="block h-5 w-px bg-white"></span>
                         <p className="text-sm sm:text-lg text-white">
-                            {!totalPrice?price.toLocaleString():totalPrice.toLocaleString()}
-                         تومان
+                            {!totalPrice ? finalPrice.toLocaleString() : totalPrice.toLocaleString()}
+                            تومان
                         </p>
                     </div>
 
                     <div className="flex items-center ml-auto md:ml-0">
-                        <div onClick={increment} className="flex items-center justify-center w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-gray-100 cursor-pointer hover:bg-gray-200 transition-colors">
+                        <div onClick={increment}
+                             className="flex items-center justify-center w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-gray-100 cursor-pointer hover:bg-gray-200 transition-colors">
                             <Plus className="w-4 h-4 sm:w-5 sm:h-5 text-black"/>
                         </div>
 
-                        <div className="flex items-center justify-center w-10 h-10 sm:w-14 sm:h-14 text-base sm:font-Yekan-Medium text-xl">
+                        <div
+                            className="flex items-center justify-center w-10 h-10 sm:w-14 sm:h-14 text-base sm:font-Yekan-Medium text-xl">
                             {count}
                         </div>
 
-                        <div onClick={decrement} className={`flex items-center justify-center w-10 h-10 sm:w-14 sm:h-14 rounded-lg cursor-pointer transition-colors ${
-                            count > 0 ? 'bg-gray-100 hover:bg-gray-200' : 'bg-gray-50 cursor-not-allowed opacity-50'
-                        }`}>
+                        <div onClick={decrement}
+                             className={`flex items-center justify-center w-10 h-10 sm:w-14 sm:h-14 rounded-lg cursor-pointer transition-colors ${
+                                 count > 0 ? 'bg-gray-100 hover:bg-gray-200' : 'bg-gray-50 cursor-not-allowed opacity-50'
+                             }`}>
                             <Minus className={`w-4 h-4 sm:w-5 sm:h-5 ${
                                 count > 0 ? 'text-black' : 'text-gray-400'
                             }`}/>
