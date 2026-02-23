@@ -1,10 +1,11 @@
-import React,{useState} from "react";
+import React, {useState} from "react";
 import {Formik, Form, Field, ErrorMessage} from "formik";
 import * as Yup from "yup";
 
 import Star from "@/src/Components/Icons/Star";
 import UserIcon from "@/src/Components/Icons/UserIcon";
 import Email from "@/src/Components/Icons/Email";
+import UserFeedbackList from "@/src/Components/Templates/Product/UserFeedbackList/UserFeedbackList";
 
 const validationSchema = Yup.object({
     fullName: Yup.string().required("نام و نام خانوادگی الزامی است"),
@@ -45,7 +46,7 @@ const StarRating = ({value, onChange}) => {
 };
 
 const UserFeedback = ({comments}) => {
-    console.log("comments=> ",comments)
+    console.log("comments=> ", comments)
     return (
         <div className="container my-24">
             {/* Header */}
@@ -155,6 +156,7 @@ const UserFeedback = ({comments}) => {
                     </Form>
                 )}
             </Formik>
+            <UserFeedbackList/>
         </div>
     );
 };
