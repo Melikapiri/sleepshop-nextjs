@@ -1,5 +1,5 @@
 "use client"
-import React, {useState,useEffect} from "react";
+import React, {useState, useEffect} from "react";
 import Select from 'react-select';
 import Breadcrumb from "@/src/Components/Modules/Ui/Breadcrumb/Breadcrumb";
 import HighlightSlider from "@/src/Components/Templates/Product/HighlightSlider/HighlightSlider";
@@ -14,10 +14,10 @@ import UserFeedback from "@/src/Components/Templates/Product/UserFeedback/UserFe
 //     {value: 'strawberry', label: 'Strawberry'},
 //     {value: 'vanilla', label: 'Vanilla'},
 // ];
-const city=StateData()
+const city = StateData()
 
 const ProductDetail = ({product, userId, isLogin}) => {
-
+    console.log(product)
     const [selectedOption, setSelectedOption] = useState(null);
     // const [city, setCity] = useState(StateData());
 
@@ -42,7 +42,7 @@ const ProductDetail = ({product, userId, isLogin}) => {
                 {/*  product body  */}
                 <ProductFeatures img={product.img} title={product.title} _id={product._id} tags={product.tags}
                                  comments={product.comments} score={product.score} material={product.material}
-                                 size={product.size} originalPrice={product.price} finalPrice={product.finalPrice}  />
+                                 size={product.size} originalPrice={product.price} finalPrice={product.finalPrice}/>
             </div>
             <HighlightSlider/>
             <div className="App">
@@ -57,7 +57,7 @@ const ProductDetail = ({product, userId, isLogin}) => {
             </div>
             <ProductDescription description={product.description}/>
             <SuggestedProducts productId={product._id} categoryId={product.category._id}/>
-            <UserFeedback comments={product.comments}/>
+            <UserFeedback score={product.score} comments={product.comments}/>
         </>
 
     );

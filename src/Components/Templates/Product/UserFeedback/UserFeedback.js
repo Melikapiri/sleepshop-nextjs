@@ -46,11 +46,9 @@ const StarRating = ({value, onChange}) => {
     );
 };
 
-const UserFeedback = ({comments}) => {
-    console.log("comments=> ", comments)
+const UserFeedback = ({score, comments}) => {
     const params = useParams()
-
-    console.log(params.id)    // const id = searchParams.get("id")
+    console.log("score=> ",score)
     return (
         <div className="container my-24">
             {/* Header */}
@@ -60,13 +58,19 @@ const UserFeedback = ({comments}) => {
                 </p>
 
                 <div className="flex flex-col items-end text-base text-dark gap-1">
-                    امتیاز 4 از 5 بین 10 دیدگاه
+                    امتیاز {score} از 5
                     <div className="flex items-center">
-                        <Star className="w-5 h-5 fill-gray-200 text-gray-200"/>
-                        <Star className="w-5 h-5 fill-star text-star"/>
-                        <Star className="w-5 h-5 fill-star text-star"/>
-                        <Star className="w-5 h-5 fill-star text-star"/>
-                        <Star className="w-5 h-5 fill-star text-star"/>
+                        {
+                            Array(5-Number(score)).fill(0).map((_,id)=>(<Star key={id} className="w-5 h-5 fill-gray-200 text-gray-200"/>))
+                        }
+                        {
+                            Array(score).fill(0).map((_,id)=>(<Star key={id} className="w-5 h-5 fill-star text-star"/>
+                            ))
+                        }
+                        {/*<Star className="w-5 h-5 fill-star text-star"/>*/}
+                        {/*<Star className="w-5 h-5 fill-star text-star"/>*/}
+                        {/*<Star className="w-5 h-5 fill-star text-star"/>*/}
+                        {/*<Star className="w-5 h-5 fill-star text-star"/>*/}
                     </div>
                 </div>
             </div>
