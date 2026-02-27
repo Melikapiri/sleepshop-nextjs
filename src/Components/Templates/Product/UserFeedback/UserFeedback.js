@@ -1,11 +1,12 @@
 import React, {useState} from "react";
 import {Formik, Form, Field, ErrorMessage} from "formik";
 import * as Yup from "yup";
-
+import {useParams} from "next/navigation"
 import Star from "@/src/Components/Icons/Star";
 import UserIcon from "@/src/Components/Icons/UserIcon";
 import Email from "@/src/Components/Icons/Email";
 import UserFeedbackList from "@/src/Components/Templates/Product/UserFeedbackList/UserFeedbackList";
+import {toast} from "react-toastify";
 
 const validationSchema = Yup.object({
     fullName: Yup.string().required("نام و نام خانوادگی الزامی است"),
@@ -47,6 +48,9 @@ const StarRating = ({value, onChange}) => {
 
 const UserFeedback = ({comments}) => {
     console.log("comments=> ", comments)
+    const params = useParams()
+
+    console.log(params.id)    // const id = searchParams.get("id")
     return (
         <div className="container my-24">
             {/* Header */}
@@ -76,10 +80,28 @@ const UserFeedback = ({comments}) => {
                     rating: 0,
                 }}
                 validationSchema={validationSchema}
-                onSubmit={(values, {resetForm}) => {
+                onSubmit={async (values, {resetForm}) => {
 
-                    console.log(values);
-                    resetForm();
+
+                    const newComments = {
+                        username: values.fullName,
+                        body: values.message,
+                        email: values.message,
+                        score: values.rating,
+                        productID: params.id
+                    }
+                    console.log(process.env.NEXT_PUBLIC_BASE_URL)
+                    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/comments`, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(newComments)
+                    })
+
+                    res.ok ? toast.success("کامنت شما در صورت تایید منتشر خواهد شد") : toast.error("برای ثبت کامنت مجدد تلاش کنید")
+
+                    resetForm()
                 }}
             >
                 {({values, setFieldValue}) => (
@@ -156,7 +178,7 @@ const UserFeedback = ({comments}) => {
                     </Form>
                 )}
             </Formik>
-            <UserFeedbackList/>
+            <UserFeedbackList comments={comments}/>
         </div>
     );
 };
