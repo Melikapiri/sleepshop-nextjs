@@ -18,9 +18,9 @@ const Table = () => {
         const isUserBasket = JSON.parse(localStorage.getItem("cart")) || []
         if (isUserBasket.length) {
             setProducts(isUserBasket)
-            setLoader(false)
 
         }
+        setLoader(false)
 
     }, []);
 

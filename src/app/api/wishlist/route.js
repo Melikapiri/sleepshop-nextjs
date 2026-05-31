@@ -23,7 +23,8 @@ export async function POST(req) {
             return NextResponse.json({ message: "Product successfully added to wishlist." }, { status: 201 });
         }
 
-        return NextResponse.json({ message: "Product already in wishlist." }, { status: 200 });
+        return NextResponse.json({ message: "Product alr" +
+                "eady in wishlist." }, { status: 200 });
     } catch (err) {
         console.error("Wishlist API error:", err);
         return NextResponse.json({ message: "Internal Server Error" }, { status: 500 });

@@ -56,8 +56,7 @@ const UserFeedback = ({score, comments}) => {
                 <p className="text-lg font-Yekan-Medium text-dark pr-3.5 border-r-[3px] border-r-lightBlue">
                     نظرات کاربران
                 </p>
-
-                <div className="flex flex-col items-end text-base text-dark gap-1">
+              <div className="flex flex-col items-end text-base text-dark gap-1">
                     امتیاز {score} از 5
                     <div className="flex items-center">
                         {

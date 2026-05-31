@@ -36,7 +36,7 @@ async function Header(props) {
                         name=""
                         id=""
                         placeholder="جستجو ..."
-                        className="outline-0 bg-transparent border-none"
+                        className="outline-0 bg-transparent border-none outline-none"
                     />
                     <Search className="w-5 h-5"/>
 

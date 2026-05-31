@@ -2,7 +2,7 @@
 
 import React, {createContext, useState, useContext, useEffect} from "react";
 
-const MenuContext = createContext();
+const MenuContext = createContext(null);
 
 export function MenuProvider({children}) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,7 +11,6 @@ export function MenuProvider({children}) {
     const toggleMenu = () => {
         setIsMenuOpen(prev => !prev);
     };
-
     useEffect(() => {
         const getCategoryData = async () => {
             const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/categories`)
@@ -20,6 +19,7 @@ export function MenuProvider({children}) {
         }
         getCategoryData()
     }, []);
+
     return (
         <MenuContext.Provider value={{isMenuOpen, toggleMenu, setIsMenuOpen, menuItem}}>
             {children}
