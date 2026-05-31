@@ -68,6 +68,6 @@ The system includes authentication, product management, filtering, cart function
 
 ```bash
 git clone https://github.com/Melikapiri/sleepshop-nextjs
-cd aramis-sleep-store
+cd sleepshop-nextjs
 npm install
 npm run dev
